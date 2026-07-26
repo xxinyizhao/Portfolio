@@ -3,6 +3,8 @@
 A responsive, accessible portfolio showcasing my electrical engineering work,
 experience, and technical skills.
 
+**Live site:** [xxinyizhao.github.io/Portfolio](https://xxinyizhao.github.io/Portfolio/)
+
 ## Run locally
 
 No build step is required. Open `index.html` in a browser, or serve the folder
