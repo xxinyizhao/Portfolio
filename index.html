@@ -1,282 +1,162 @@
 <!doctype html>
+<!-- This is the root document. The lang attribute helps screen readers and search engines. -->
 <html lang="en">
   <head>
+    <!-- Character encoding and responsive browser settings. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta
-      name="description"
-      content="Xinyi Zhao is a UBC electrical engineering student building reliable hardware, production test systems, and electric vehicles."
-    >
-    <meta name="theme-color" content="#0b0d0c">
-    <title>Xinyi Zhao — Electrical Engineer</title>
+    <meta name="description" content="Xinyi Zhao — electrical engineering portfolio">
+    <title>Xinyi Zhao | Portfolio</title>
+    <!-- Connect early to Google Fonts so the typefaces load faster. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    >
-    <script>document.documentElement.classList.add("js");</script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Load this site's visual rules, followed by its interactive behavior. -->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
   </head>
   <body>
+    <!-- Keyboard users can jump past the menu directly to the main content. -->
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- Sticky site identity and links to the four main sections. -->
     <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Xinyi Zhao, home">
-        <span class="wordmark-mark" aria-hidden="true">XZ</span>
-        <span>Xinyi Zhao</span>
-      </a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="sr-only">Open menu</span>
-        <span></span><span></span>
-      </button>
-      <nav id="site-nav" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
+      <a class="site-name" href="#top"><span>XZ</span> Xinyi Zhao</a>
+      <nav aria-label="Main navigation">
         <a href="#about">About</a>
-        <a class="nav-contact" href="mailto:xxinyizhao@gmail.com">Let’s talk <span>↗</span></a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
       </nav>
     </header>
 
+    <!-- All unique page content lives inside main. -->
     <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-status reveal">
-          <span class="status-dot"></span>
-          Electrical Engineering @ UBC
+      <!-- Introductory scrapbook page and draggable decorative objects. -->
+      <section class="hero scrapbook-page" id="top">
+        <div class="hero-copy">
+          <p class="stamp">PORTFOLIO</p>
+          <h1><span class="hero-greeting">Hi! I’m</span><strong class="hero-name">Xinyi Zhao</strong></h1>
+          <div class="hero-links" aria-label="Contact and profile links">
+            <a href="mailto:xxinyizhao@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Email</span><b>↗</b></a>
+            <a href="assets/Xinyi-Zhao-Resume.pdf" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A3.5 3.5 0 0 1 6.5 2H11v17H6.5A3.5 3.5 0 0 0 3 22zM21 5.5A3.5 3.5 0 0 0 17.5 2H13v17h4.5A3.5 3.5 0 0 1 21 22z"/></svg><span>Résumé</span><b>↗</b></a>
+            <a href="https://www.linkedin.com/in/xxinyizhao" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7M7.5 7.25v.01M11 17v-7m0 3.1c.7-2.1 5.5-2.3 5.5 1.4V17"/></svg><span>LinkedIn</span><b>↗</b></a>
+            <a href="https://github.com/xxinyizhao" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 2a13.4 13.4 0 0 0-6 0C5.8.1 4.7.5 4.7.5A5 5 0 0 0 4.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.3 3.5 6.5 6.8 6.9A4.8 4.8 0 0 0 9 18v4M9 19c-3 .9-3-1.5-4-2"/></svg><span>GitHub</span><b>↗</b></a>
+          </div>
         </div>
-        <h1 class="reveal">
-          I build hardware that works
-          <span class="accent">beyond the bench.</span>
-        </h1>
-        <div class="hero-bottom reveal">
-          <p>
-            Electrical engineer focused on reliable PCB design, production test,
-            and the systems that bring ambitious machines to life.
-          </p>
-          <a class="text-link" href="#work">Explore selected work <span>↓</span></a>
+
+        <!-- The draggable class is used by script.js to make these scraps movable. -->
+        <div class="hero-collage" aria-label="Engineering scrapbook decorations">
+          <figure class="polaroid draggable" data-rotate="-4">
+            <!-- Main portrait. Replace the src path to use a different image. -->
+            <img class="photo-placeholder" src="assets/graphics/me.png" alt="selfie">
+            <figcaption>Currently: EE Intern at Kardium ✦</figcaption>
+          </figure>
+
+          <div class="sticky-note draggable" data-rotate="5">
+            <strong>Education:</strong>
+            <span>4th-Year Electrical Engineering Student at UBC</span>
+          </div>
+
+          <!-- Three draggable PNG slots. Replace a span with an img using class png-placeholder. -->
+          <figure class="png-scrap png-scrap-one draggable"><span class="png-placeholder">PNG 01<small>assets/graphics/scrap-01.png</small></span></figure>
+          <figure class="png-scrap png-scrap-two draggable"><span class="png-placeholder">PNG 02<small>assets/graphics/scrap-02.png</small></span></figure>
+          <figure class="png-scrap png-scrap-three draggable"><span class="png-placeholder">PNG 03<small>assets/graphics/scrap-03.png</small></span></figure>
+
         </div>
-        <div class="signal" aria-hidden="true">
-          <div class="signal-line"></div>
-          <div class="signal-node node-one"></div>
-          <div class="signal-node node-two"></div>
-          <div class="signal-node node-three"></div>
-          <span class="signal-label label-one">DESIGN</span>
-          <span class="signal-label label-two">VALIDATE</span>
-          <span class="signal-label label-three">DEPLOY</span>
+        <p class="drag-hint">Psst — drag the notes around</p>
+      </section>
+
+      <!-- Personal introduction, résumé link, and compact skills list. -->
+      <section class="scrapbook-page about" id="about">
+        <div class="section-label">01 / ABOUT ME</div>
+        <div class="about-layout">
+          <aside class="about-intro about-skills">
+            <p class="handwritten">skills + tools</p>
+            <div class="skill-list">
+              <section><h3>Hardware</h3><div class="skill-tags"><span tabindex="0">PCB Design</span><span tabindex="0">Power Electronics</span><span tabindex="0">Wire Harnessing</span><span tabindex="0">PCB Rework</span><span tabindex="0">Boundary Scan</span></div></section>
+              <section><h3>Software</h3><div class="skill-tags"><span tabindex="0">C / C++</span><span tabindex="0">Python</span><span tabindex="0">MATLAB / Simulink</span><span tabindex="0">LabVIEW</span><span tabindex="0">Verilog</span></div></section>
+              <section><h3>Protocols</h3><div class="skill-tags"><span tabindex="0">CAN</span><span tabindex="0">UART</span><span tabindex="0">I²C</span><span tabindex="0">SPI</span><span tabindex="0">isoSPI</span><span tabindex="0">USB</span></div></section>
+            </div>
+          </aside>
+
+          <!-- Add as many paragraphs as you need inside this article. -->
+          <article class="about-story">
+            <h2>About me</h2>
+            <p>I’m a fourth-year Electrical Engineering student at the University of British Columbia. I care about the full hardware lifecycle: defining an architecture, designing the board, finding the fault, and proving the system is ready.</p>
+            <!-- Replace these short list items with your own jot notes. -->
+            <section class="jot-note">
+              <h3>What I work on</h3>
+              <ul>
+                <li>PCB design and power electronics</li>
+                <li>Embedded systems and wire harnessing</li>
+                <li>Automated production test and validation</li>
+              </ul>
+            </section>
+            <section class="jot-note">
+              <h3>A little more about me</h3>
+              <ul>
+                <li>Add a note about how you became interested in engineering</li>
+                <li>Add a note about how you work with a team</li>
+                <li>Add a note about what you want to build next</li>
+              </ul>
+            </section>
+          </article>
         </div>
       </section>
 
-      <section class="section work-section" id="work">
-        <div class="section-heading reveal">
-          <p class="eyebrow">01 / Selected work</p>
-          <h2>Engineering from first principles to final validation.</h2>
+      <!-- Work history. Each article is one role on the timeline. -->
+      <section class="scrapbook-page experience" id="experience">
+        <div class="section-label">02 / EXPERIENCE LOG</div>
+        <h2>My Experience</h2>
+        <div class="timeline">
+          <!-- Each timeline button opens the dialog named in data-dialog. -->
+          <button class="timeline-entry" data-dialog="kardium-role" type="button"><time>05.2026 — NOW</time><span><strong>Kardium</strong><b>Electrical Engineering Intern</b><small>Production test development for medical-device PCBAs.</small></span><em>view notes →</em></button>
+          <button class="timeline-entry" data-dialog="formula-role" type="button"><time>09.2024 — NOW</time><span><strong>UBC Formula Electric</strong><b>Electrical Technical Director</b><small>Electrical leadership, reviews, testing, and vehicle integration.</small></span><em>view notes →</em></button>
+          <button class="timeline-entry" data-dialog="envo-role" type="button"><time>05 — 08.2025</time><span><strong>ENVO Drive Systems</strong><b>Electrical Engineering Intern</b><small>Electrical architecture and sensor testing for an electric vehicle.</small></span><em>view notes →</em></button>
         </div>
+      </section>
 
-        <article class="project project-featured reveal">
-          <div class="project-number">01</div>
-          <div class="project-visual formula-visual" aria-hidden="true">
-            <div class="board board-main">
-              <span class="chip">VCU</span>
-              <i></i><i></i><i></i><i></i>
-            </div>
-            <div class="board board-small"><span>BMS</span></div>
-            <div class="board board-small board-right"><span>PDM</span></div>
-            <svg viewBox="0 0 800 480" role="img">
-              <path d="M80 118H285M463 118H720M375 175V345M172 345H630" />
-              <circle cx="80" cy="118" r="5" />
-              <circle cx="720" cy="118" r="5" />
-              <circle cx="172" cy="345" r="5" />
-              <circle cx="630" cy="345" r="5" />
-            </svg>
-            <span class="visual-note note-top">CAN BUS / 1 Mbps</span>
-            <span class="visual-note note-bottom">6 ECUs · 11 SUPPORTING PCBs</span>
-          </div>
-          <div class="project-copy">
-            <div>
-              <p class="project-type">System architecture · PCB design · Team leadership</p>
-              <h3>UBC Formula Electric</h3>
-            </div>
-            <p>
-              Leading 15 electrical engineering students building a fully custom,
-              CAN-networked low-voltage system for an electric FSAE racecar—from
-              power distribution and sensing to the BMS.
-            </p>
-            <ul class="tags" aria-label="Tools and technologies">
-              <li>Altium</li>
-              <li>CAN</li>
-              <li>Power Electronics</li>
-              <li>RapidHarness</li>
-            </ul>
-          </div>
-        </article>
+      <!-- Project archive. data-dialog tells JavaScript which popup to open. -->
+      <section class="scrapbook-page projects" id="projects">
+        <div class="section-label">03 / PROJECT ARCHIVE</div>
+        <div class="projects-heading">
+          <h2>Things I’ve built</h2>
+          <p class="handwritten">click a card to peek inside!</p>
+        </div>
 
         <div class="project-grid">
-          <article class="project project-small reveal">
-            <div class="project-number">02</div>
-            <div class="project-visual test-visual" aria-hidden="true">
-              <div class="coverage-ring"><strong>86%</strong><span>coverage</span></div>
-              <div class="test-lines"><i></i><i></i><i></i><i></i><i></i></div>
-              <span class="visual-note">PCBA PRODUCTION TEST</span>
-            </div>
-            <div class="project-copy">
-              <div>
-                <p class="project-type">Boundary scan · Automated test</p>
-                <h3>Production Test Platform</h3>
-              </div>
-              <p>
-                Designed and validated production-level test processes for
-                medical-device PCBAs, combining JTAG, lab equipment, LabVIEW,
-                and TestStand.
-              </p>
-              <ul class="tags">
-                <li>JTAG</li>
-                <li>LabVIEW</li>
-                <li>TestStand</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project project-small reveal">
-            <div class="project-number">03</div>
-            <div class="project-visual harness-visual" aria-hidden="true">
-              <span class="harness-node hn-one">ECU</span>
-              <span class="harness-node hn-two">PWR</span>
-              <span class="harness-node hn-three">M1</span>
-              <span class="harness-node hn-four">M2</span>
-              <svg viewBox="0 0 600 360">
-                <path d="M117 180H285M315 180H480M300 165V70M300 195V290" />
-              </svg>
-              <span class="visual-note">ELECTRIC VEHICLE HARNESS</span>
-            </div>
-            <div class="project-copy">
-              <div>
-                <p class="project-type">Electrical systems · Vehicle integration</p>
-                <h3>ENVO UPT</h3>
-              </div>
-              <p>
-                Owned the electrical harness and high-level architecture for a
-                fully electric low-speed vehicle, integrating sensors, motors,
-                power distribution, ECUs, and battery.
-              </p>
-              <ul class="tags">
-                <li>KiCad</li>
-                <li>ESP32</li>
-                <li>FMEA</li>
-              </ul>
-            </div>
-          </article>
+          <!-- Replace a placeholder span with an img element when your image is ready. -->
+          <button class="project-card" data-dialog="project-01" type="button"><span class="project-index">P.01</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-01.jpg</small></span><span class="project-meta">SYSTEM ARCHITECTURE · PCB</span><strong>UBC Formula Electric</strong><em>open case notes →</em></button>
+          <button class="project-card" data-dialog="project-02" type="button"><span class="project-index">P.02</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-02.jpg</small></span><span class="project-meta">JTAG · AUTOMATED TEST</span><strong>Production Test Platform</strong><em>open case notes →</em></button>
+          <button class="project-card" data-dialog="project-03" type="button"><span class="project-index">P.03</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-03.jpg</small></span><span class="project-meta">HARNESS · VEHICLE</span><strong>ENVO UPT</strong><em>open case notes →</em></button>
+          <button class="project-card" data-dialog="project-04" type="button"><span class="project-index">P.04</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-04.jpg</small></span><span class="project-meta">CATEGORY · TOOLS</span><strong>Project Four</strong><em>open case notes →</em></button>
+          <button class="project-card" data-dialog="project-05" type="button"><span class="project-index">P.05</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-05.jpg</small></span><span class="project-meta">CATEGORY · TOOLS</span><strong>Project Five</strong><em>open case notes →</em></button>
+          <button class="project-card" data-dialog="project-06" type="button"><span class="project-index">P.06</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-06.jpg</small></span><span class="project-meta">CATEGORY · TOOLS</span><strong>Project Six</strong><em>open case notes →</em></button>
         </div>
+
+        <!-- Editing reminder showing where additional media can be imported. -->
+        <aside class="import-note">
+          <strong>YOUR GRAPHICS GO HERE ✂</strong>
+          <p>Add JPG, PNG, SVG, GIF, or GLB files to <code>assets/</code>, then replace any <code>.project-graphic</code> with an image or 3D viewer.</p>
+        </aside>
       </section>
 
-      <section class="section experience-section" id="experience">
-        <div class="section-heading reveal">
-          <p class="eyebrow">02 / Experience</p>
-          <h2>Building dependable electronics in high-stakes environments.</h2>
-        </div>
-        <div class="timeline">
-          <article class="role reveal">
-            <p class="role-date">May 2026 — Present</p>
-            <div class="role-title">
-              <h3>Electrical Engineering Intern</h3>
-              <p>Kardium · Burnaby, BC</p>
-            </div>
-            <p class="role-summary">
-              Own production test development for medical-device PCBAs, including
-              custom test hardware, boundary-scan sequences, automated procedures,
-              and component lifecycle support.
-            </p>
-          </article>
-          <article class="role reveal">
-            <p class="role-date">Sept 2024 — Present</p>
-            <div class="role-title">
-              <h3>Electrical Technical Director</h3>
-              <p>UBC Formula Electric</p>
-            </div>
-            <p class="role-summary">
-              Lead the electrical team through architecture, design reviews,
-              board bring-up, vehicle integration, debugging, and manufacturing
-              for a custom electric racecar.
-            </p>
-          </article>
-          <article class="role reveal">
-            <p class="role-date">May — Aug 2025</p>
-            <div class="role-title">
-              <h3>Electrical Engineering Intern</h3>
-              <p>ENVO Drive Systems · Burnaby, BC</p>
-            </div>
-            <p class="role-summary">
-              Drove electrical system design for the UPT vehicle and validated
-              sensor performance with custom ESP32 test circuits.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section about-section" id="about">
-        <div class="about-intro reveal">
-          <p class="eyebrow">03 / About</p>
-          <h2>Curious at the schematic. Calm at bring-up.</h2>
-        </div>
-        <div class="about-copy reveal">
-          <p class="large-copy">
-            I’m a fourth-year Electrical Engineering student at the University
-            of British Columbia. I care about the full hardware lifecycle:
-            defining an architecture, designing the board, finding the fault,
-            and proving the system is ready.
-          </p>
-          <p>
-            My experience spans power electronics, PCB design, embedded systems,
-            wire harnessing, and automated test. I enjoy work where thoughtful
-            design meets hands-on debugging—and where reliability genuinely matters.
-          </p>
-          <a class="button" href="assets/Xinyi-Zhao-Resume.pdf" target="_blank">
-            View résumé <span>↗</span>
-          </a>
-        </div>
-
-        <div class="skills reveal">
-          <div class="skill-group">
-            <p>Hardware</p>
-            <ul>
-              <li>PCB Design</li><li>Power Electronics</li><li>Wire Harnessing</li>
-              <li>PCB Rework</li><li>Boundary Scan</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <p>Software</p>
-            <ul>
-              <li>C / C++</li><li>Python</li><li>MATLAB / Simulink</li>
-              <li>LabVIEW</li><li>Verilog</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <p>Protocols</p>
-            <ul>
-              <li>CAN</li><li>UART</li><li>I²C</li><li>SPI</li><li>isoSPI</li><li>USB</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section">
-        <p class="eyebrow reveal">04 / Contact</p>
-        <div class="contact-content reveal">
-          <h2>Let’s build something<br><span>worth testing.</span></h2>
-          <div class="contact-links">
-            <a href="mailto:xxinyizhao@gmail.com">xxinyizhao@gmail.com <span>↗</span></a>
-            <a href="https://www.linkedin.com/in/xxinyizhao" target="_blank" rel="noreferrer">
-              LinkedIn <span>↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <footer>
-      <p>© <span id="year"></span> Xinyi Zhao</p>
-      <p>Designed &amp; built with intention.</p>
-      <a href="#top">Back to top ↑</a>
-    </footer>
+    <!-- JavaScript inserts the current year into #year automatically. -->
+    <footer><p>© <span id="year"></span> Xinyi Zhao · Built like a well-loved lab notebook</p><a href="#top">Back to top ↑</a></footer>
+
+    <!-- Scrollable experience popups preserve the timeline/field-log style. -->
+    <dialog id="kardium-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 05.2026 — NOW</p><h2>Kardium</h2><h3>Electrical Engineering Intern</h3><div class="timeline-detail"><section><b>01 / OVERVIEW</b><p>Add a longer overview of your role here.</p></section><section><b>02 / RESPONSIBILITIES</b><p>Add responsibilities, test systems, hardware, and ownership here.</p></section><section><b>03 / IMPACT</b><p>Add measurable results and lessons here.</p></section></div><div class="graphic-dropzone">ADD APPROVED WORKPLACE IMAGE OR DIAGRAM</div></div></dialog>
+    <dialog id="formula-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 09.2024 — NOW</p><h2>UBC Formula Electric</h2><h3>Electrical Technical Director</h3><div class="timeline-detail"><section><b>01 / OVERVIEW</b><p>Add your leadership scope and team description.</p></section><section><b>02 / RESPONSIBILITIES</b><p>Add architecture, reviews, bring-up, and integration details.</p></section><section><b>03 / IMPACT</b><p>Add accomplishments and results.</p></section></div><div class="graphic-dropzone">ADD TEAM OR VEHICLE IMAGE</div></div></dialog>
+    <dialog id="envo-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 05 — 08.2025</p><h2>ENVO Drive Systems</h2><h3>Electrical Engineering Intern</h3><div class="timeline-detail"><section><b>01 / OVERVIEW</b><p>Add a longer overview of your internship.</p></section><section><b>02 / RESPONSIBILITIES</b><p>Add architecture, harness, and sensor validation work.</p></section><section><b>03 / IMPACT</b><p>Add outcomes and lessons learned.</p></section></div><div class="graphic-dropzone">ADD VEHICLE OR HARNESS IMAGE</div></div></dialog>
+
+    <!-- Six reusable project popups. Copy these content blocks to expand each case study. -->
+    <dialog id="project-01" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 01</p><h2>UBC Formula Electric</h2><div class="graphic-dropzone large">ADD HERO IMAGE, VIDEO, OR 3D VIEWER</div><section class="case-section"><b>OVERVIEW</b><p>Describe the problem, vehicle, team, and project goal here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your responsibilities, decisions, and design process.</p></section><section class="case-section"><b>TOOLS + TECHNOLOGY</b><div class="dialog-tags"><span>Altium</span><span>CAN</span><span>Power Electronics</span></div></section><div class="graphic-dropzone">ADD SCHEMATIC, PCB LAYOUT, OR TEST RESULTS</div><section class="case-section"><b>RESULTS + REFLECTION</b><p>Add outcomes, measurements, and what you learned.</p></section></div></dialog>
+    <dialog id="project-02" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 02</p><h2>Production Test Platform</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add the problem and project goal.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your design and validation process.</p></section><section class="case-section"><b>TOOLS + TECHNOLOGY</b><div class="dialog-tags"><span>JTAG</span><span>LabVIEW</span><span>TestStand</span></div></section><div class="graphic-dropzone">ADD FIXTURE, COVERAGE CHART, OR TEST RESULTS</div><section class="case-section"><b>RESULTS + REFLECTION</b><p>Add outcomes and lessons.</p></section></div></dialog>
+    <dialog id="project-03" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 03</p><h2>ENVO UPT</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add the vehicle and system goal.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add architecture and harness details.</p></section><section class="case-section"><b>TOOLS + TECHNOLOGY</b><div class="dialog-tags"><span>KiCad</span><span>ESP32</span><span>FMEA</span></div></section><div class="graphic-dropzone">ADD HARNESS DRAWING OR BLOCK DIAGRAM</div><section class="case-section"><b>RESULTS + REFLECTION</b><p>Add outcomes and lessons.</p></section></div></dialog>
+    <dialog id="project-04" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 04</p><h2>Project Four</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add project content here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your work here.</p></section><div class="graphic-dropzone">ADD SECONDARY MEDIA</div></div></dialog>
+    <dialog id="project-05" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 05</p><h2>Project Five</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add project content here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your work here.</p></section><div class="graphic-dropzone">ADD SECONDARY MEDIA</div></div></dialog>
+    <dialog id="project-06" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 06</p><h2>Project Six</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add project content here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your work here.</p></section><div class="graphic-dropzone">ADD SECONDARY MEDIA</div></div></dialog>
   </body>
 </html>
