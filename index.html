@@ -1,162 +1,140 @@
-<!doctype html>
-<!-- This is the root document. The lang attribute helps screen readers and search engines. -->
-<html lang="en">
+<!doctype html><html lang="en">
   <head>
-    <!-- Character encoding and responsive browser settings. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Xinyi Zhao — electrical engineering portfolio">
     <title>Xinyi Zhao | Portfolio</title>
-    <!-- Connect early to Google Fonts so the typefaces load faster. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Load this site's visual rules, followed by its interactive behavior. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.138.3/build/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/occt-import-js@0.0.23/dist/occt-import-js.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Keyboard users can jump past the menu directly to the main content. -->
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Sticky site identity and links to the four main sections. -->
     <header class="site-header">
-      <a class="site-name" href="#top"><span>XZ</span> Xinyi Zhao</a>
+      <a class="site-name" href="#top"><span aria-hidden="true"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="7.5" rx="4" ry="6"/><ellipse cx="16" cy="7.5" rx="4" ry="6" transform="rotate(72 16 16)"/><ellipse cx="16" cy="7.5" rx="4" ry="6" transform="rotate(144 16 16)"/><ellipse cx="16" cy="7.5" rx="4" ry="6" transform="rotate(216 16 16)"/><ellipse cx="16" cy="7.5" rx="4" ry="6" transform="rotate(288 16 16)"/><circle cx="16" cy="16" r="2.5"/></svg></span> Xinyi Zhao</a>
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
       </nav>
     </header>
 
-    <!-- All unique page content lives inside main. -->
     <main id="main">
-      <!-- Introductory scrapbook page and draggable decorative objects. -->
       <section class="hero scrapbook-page" id="top">
         <div class="hero-copy">
-          <p class="stamp">PORTFOLIO</p>
-          <h1><span class="hero-greeting">Hi! I’m</span><strong class="hero-name">Xinyi Zhao</strong></h1>
-          <div class="hero-links" aria-label="Contact and profile links">
-            <a href="mailto:xxinyizhao@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Email</span><b>↗</b></a>
-            <a href="assets/Xinyi-Zhao-Resume.pdf" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A3.5 3.5 0 0 1 6.5 2H11v17H6.5A3.5 3.5 0 0 0 3 22zM21 5.5A3.5 3.5 0 0 0 17.5 2H13v17h4.5A3.5 3.5 0 0 1 21 22z"/></svg><span>Résumé</span><b>↗</b></a>
-            <a href="https://www.linkedin.com/in/xxinyizhao" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7M7.5 7.25v.01M11 17v-7m0 3.1c.7-2.1 5.5-2.3 5.5 1.4V17"/></svg><span>LinkedIn</span><b>↗</b></a>
-            <a href="https://github.com/xxinyizhao" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 2a13.4 13.4 0 0 0-6 0C5.8.1 4.7.5 4.7.5A5 5 0 0 0 4.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.3 3.5 6.5 6.8 6.9A4.8 4.8 0 0 0 9 18v4M9 19c-3 .9-3-1.5-4-2"/></svg><span>GitHub</span><b>↗</b></a>
+          <h1><strong class="hero-name">Xinyi Zhao</strong><span class="hero-greeting">Project Portfolio</span></h1>
+          <div class="hero-directory">
+            <div class="hero-links" aria-label="Contact and profile links">
+              <a href="mailto:xxinyizhao@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Email</span><b>↗</b></a>
+              <a href="assets/Xinyi-Zhao-Resume.pdf" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A3.5 3.5 0 0 1 6.5 2H11v17H6.5A3.5 3.5 0 0 0 3 22zM21 5.5A3.5 3.5 0 0 0 17.5 2H13v17h4.5A3.5 3.5 0 0 1 21 22z"/></svg><span>Résumé</span><b>↗</b></a>
+              <a href="https://www.linkedin.com/in/xxinyizhao" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7M7.5 7.25v.01M11 17v-7m0 3.1c.7-2.1 5.5-2.3 5.5 1.4V17"/></svg><span>LinkedIn</span><b>↗</b></a>
+              <a href="https://github.com/xxinyizhao" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 2a13.4 13.4 0 0 0-6 0C5.8.1 4.7.5 4.7.5A5 5 0 0 0 4.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.3 3.5 6.5 6.8 6.9A4.8 4.8 0 0 0 9 18v4M9 19c-3 .9-3-1.5-4-2"/></svg><span>GitHub</span><b>↗</b></a>
+            </div>
           </div>
         </div>
 
-        <!-- The draggable class is used by script.js to make these scraps movable. -->
-        <div class="hero-collage" aria-label="Engineering scrapbook decorations">
-          <figure class="polaroid draggable" data-rotate="-4">
-            <!-- Main portrait. Replace the src path to use a different image. -->
+        <div class="hero-collage" aria-label="Portrait">
+          <figure class="polaroid">
             <img class="photo-placeholder" src="assets/graphics/me.png" alt="selfie">
-            <figcaption>Currently: EE Intern at Kardium ✦</figcaption>
           </figure>
-
-          <div class="sticky-note draggable" data-rotate="5">
-            <strong>Education:</strong>
-            <span>4th-Year Electrical Engineering Student at UBC</span>
-          </div>
-
-          <!-- Three draggable PNG slots. Replace a span with an img using class png-placeholder. -->
-          <figure class="png-scrap png-scrap-one draggable"><span class="png-placeholder">PNG 01<small>assets/graphics/scrap-01.png</small></span></figure>
-          <figure class="png-scrap png-scrap-two draggable"><span class="png-placeholder">PNG 02<small>assets/graphics/scrap-02.png</small></span></figure>
-          <figure class="png-scrap png-scrap-three draggable"><span class="png-placeholder">PNG 03<small>assets/graphics/scrap-03.png</small></span></figure>
-
         </div>
-        <p class="drag-hint">Psst — drag the notes around</p>
       </section>
 
-      <!-- Personal introduction, résumé link, and compact skills list. -->
       <section class="scrapbook-page about" id="about">
         <div class="section-label">01 / ABOUT ME</div>
+        <h2>About Me</h2>
         <div class="about-layout">
-          <aside class="about-intro about-skills">
-            <p class="handwritten">skills + tools</p>
-            <div class="skill-list">
-              <section><h3>Hardware</h3><div class="skill-tags"><span tabindex="0">PCB Design</span><span tabindex="0">Power Electronics</span><span tabindex="0">Wire Harnessing</span><span tabindex="0">PCB Rework</span><span tabindex="0">Boundary Scan</span></div></section>
-              <section><h3>Software</h3><div class="skill-tags"><span tabindex="0">C / C++</span><span tabindex="0">Python</span><span tabindex="0">MATLAB / Simulink</span><span tabindex="0">LabVIEW</span><span tabindex="0">Verilog</span></div></section>
-              <section><h3>Protocols</h3><div class="skill-tags"><span tabindex="0">CAN</span><span tabindex="0">UART</span><span tabindex="0">I²C</span><span tabindex="0">SPI</span><span tabindex="0">isoSPI</span><span tabindex="0">USB</span></div></section>
-            </div>
-          </aside>
-
-          <!-- Add as many paragraphs as you need inside this article. -->
           <article class="about-story">
-            <h2>About me</h2>
-            <p>I’m a fourth-year Electrical Engineering student at the University of British Columbia. I care about the full hardware lifecycle: defining an architecture, designing the board, finding the fault, and proving the system is ready.</p>
-            <!-- Replace these short list items with your own jot notes. -->
+            <p>Hi! I’m Xinyi, a 4th-year electrical engineering student at UBC. I’m passionate about hardware design, with experience designing and debugging PCBs, electric harnesses, and other electrical systems through my work at UBC’s Formula Electric SAE Team, my EE coursework, and past co-ops. I also have experience with FPGA and digital circuit design using Verilog/SystemVerilog.</p>
             <section class="jot-note">
-              <h3>What I work on</h3>
+              <h3>I have experience with:</h3>
               <ul>
-                <li>PCB design and power electronics</li>
-                <li>Embedded systems and wire harnessing</li>
-                <li>Automated production test and validation</li>
-              </ul>
-            </section>
-            <section class="jot-note">
-              <h3>A little more about me</h3>
-              <ul>
-                <li>Add a note about how you became interested in engineering</li>
-                <li>Add a note about how you work with a team</li>
-                <li>Add a note about what you want to build next</li>
+                <li>PCB design, bring-up, and validation.</li>
+                <li>Power electronics, battery management system, signal processing design and validation.</li>
+                <li>Test fixture designs including PCBAs and LabVIEW, TestStand, and boundary-scan software.</li>
+                <li>Managing mechanical and software integration on an electric race-car.</li>
+                <li>Internships working on medical equipment and low-speed electric vehicles.</li>
               </ul>
             </section>
           </article>
+
+          <div class="about-gallery" aria-label="Engineering project photos">
+            <figure><img src="assets/graphics/debug_v1.png" alt="Smart Debugging Board V1"><figcaption>Smart Debugging Board V1</figcaption></figure>
+            <figure><img src="assets/graphics/LV_buck.jpeg" alt="FSAE racecar LV electrical system testing"><figcaption>FSAE racecar LV electrical system testing</figcaption></figure>
+          </div>
         </div>
       </section>
 
-      <!-- Work history. Each article is one role on the timeline. -->
+      <section class="scrapbook-page skills-section" id="skills">
+        <div class="section-label">02 / SKILLS + TOOLS</div>
+        <h2>Skills + Tools</h2>
+        <div class="skill-list">
+          <section><h3>Hardware</h3><div class="skill-tags"><span tabindex="0">PCB Design (Altium, KiCad)</span><span tabindex="0">Power Electronics (Buck/Boost, LDO, PMIC)</span><span tabindex="0">Simulation (LTspice)</span><span tabindex="0">Wire Harnessing</span><span tabindex="0">PCB Manufacturing &amp; Rework</span><span tabindex="0">THT/SMD Soldering</span></div></section>
+          <section><h3>Hardware Tools</h3><div class="skill-tags"><span tabindex="0">Oscilloscope</span><span tabindex="0">E-Load</span><span tabindex="0">Power Supply</span><span tabindex="0">Function Generator</span><span tabindex="0">DMM</span><span tabindex="0">Hi-Pot Testing</span><span tabindex="0">Boundary Scan (JTAG)</span><span tabindex="0">LabVIEW</span><span tabindex="0">NI TestStand</span><span tabindex="0">Verilog</span><span tabindex="0">FPGA (ModelSim, Quartus)</span></div></section>
+          <section><h3>Software</h3><div class="skill-tags"><span tabindex="0">C/C++</span><span tabindex="0">Python</span><span tabindex="0">ARM Assembly</span><span tabindex="0">MATLAB/SimuLink</span><span tabindex="0">Git</span><span tabindex="0">Jira/Confluence</span></div></section>
+          <section><h3>Communication Protocols</h3><div class="skill-tags"><span tabindex="0">CAN</span><span tabindex="0">UART</span><span tabindex="0">I2C</span><span tabindex="0">SPI</span><span tabindex="0">isoSPI</span><span tabindex="0">USB</span><span tabindex="0">SWD</span></div></section>
+        </div>
+      </section>
+
       <section class="scrapbook-page experience" id="experience">
-        <div class="section-label">02 / EXPERIENCE LOG</div>
+        <div class="section-label">03 / EXPERIENCE</div>
         <h2>My Experience</h2>
+        <div class="experience-layout">
         <div class="timeline">
-          <!-- Each timeline button opens the dialog named in data-dialog. -->
-          <button class="timeline-entry" data-dialog="kardium-role" type="button"><time>05.2026 — NOW</time><span><strong>Kardium</strong><b>Electrical Engineering Intern</b><small>Production test development for medical-device PCBAs.</small></span><em>view notes →</em></button>
-          <button class="timeline-entry" data-dialog="formula-role" type="button"><time>09.2024 — NOW</time><span><strong>UBC Formula Electric</strong><b>Electrical Technical Director</b><small>Electrical leadership, reviews, testing, and vehicle integration.</small></span><em>view notes →</em></button>
-          <button class="timeline-entry" data-dialog="envo-role" type="button"><time>05 — 08.2025</time><span><strong>ENVO Drive Systems</strong><b>Electrical Engineering Intern</b><small>Electrical architecture and sensor testing for an electric vehicle.</small></span><em>view notes →</em></button>
+          <button class="timeline-entry" data-dialog="kardium-role" type="button"><time>May 2026 — Present</time><span><strong>Kardium</strong><b>Electrical Engineering Intern</b><small>Production test development for medical-device PCBAs.</small></span><em>see more →</em></button>
+          <button class="timeline-entry" data-dialog="envo-role" type="button"><time>May 2025 — August 2025</time><span><strong>ENVO Drive Systems</strong><b>Electrical Engineering Intern</b><small>Electrical architecture and harnessing for the UPT project, a low-speed electric vehicle.</small></span><em>see more →</em></button>
+          <button class="timeline-entry" data-dialog="formula-role" type="button"><time>September 2024 — Present</time><span><strong>UBC Formula Electric</strong><b>Electrical Technical Director</b><small>PCB design, validation, harnessing, and vehicle integration.</small></span><em>see more →</em></button>
+        </div>
+        <div class="experience-gallery" aria-label="Experience photo gallery" aria-roledescription="carousel" tabindex="0">
+          <div class="experience-slides" aria-live="polite">
+            <div class="experience-track">
+              <figure class="experience-slide"><img src="assets/graphics/comp_2026_team.jpeg" alt="Electrical and software team members with Hexray at the 2026 FSAE Electric competition"><figcaption>Members of the electrical and software teams with our 6th car, Hexray, during the 2026 FSAE Electric competition at Michigan International Speedway.</figcaption></figure>
+              <figure class="experience-slide"><img src="assets/graphics/hexray.png" alt="Our sixth FSAE Electric race car, Hexray"><figcaption>Our 6th FSAE Electric race car, &quot;Hexray&quot;</figcaption></figure>
+              <figure class="experience-slide"><img src="assets/graphics/comp_2025_team.JPG" alt="Electrical team members with Quintuna at the 2025 FSAE Electric competition"><figcaption>Members of the electrical team with our 5th car, Quintuna, during the 2025 FSAE Electric competition at Michigan International Speedway.</figcaption></figure>
+              <figure class="experience-slide"><span>IMAGE 04</span><figcaption>Add hardware caption</figcaption></figure>
+              <figure class="experience-slide"><span>IMAGE 05</span><figcaption>Add testing caption</figcaption></figure>
+            </div>
+          </div>
+          <div class="slideshow-controls"><button class="slide-previous" type="button" aria-label="Previous experience image">←</button><span class="slide-counter">1 / 5</span><button class="slide-next" type="button" aria-label="Next experience image">→</button></div>
+        </div>
         </div>
       </section>
 
-      <!-- Project archive. data-dialog tells JavaScript which popup to open. -->
       <section class="scrapbook-page projects" id="projects">
-        <div class="section-label">03 / PROJECT ARCHIVE</div>
+        <div class="section-label">04 / MY PROJECTS</div>
         <div class="projects-heading">
-          <h2>Things I’ve built</h2>
-          <p class="handwritten">click a card to peek inside!</p>
+          <h2>Things I’ve Worked on</h2>
         </div>
 
         <div class="project-grid">
-          <!-- Replace a placeholder span with an img element when your image is ready. -->
-          <button class="project-card" data-dialog="project-01" type="button"><span class="project-index">P.01</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-01.jpg</small></span><span class="project-meta">SYSTEM ARCHITECTURE · PCB</span><strong>UBC Formula Electric</strong><em>open case notes →</em></button>
-          <button class="project-card" data-dialog="project-02" type="button"><span class="project-index">P.02</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-02.jpg</small></span><span class="project-meta">JTAG · AUTOMATED TEST</span><strong>Production Test Platform</strong><em>open case notes →</em></button>
-          <button class="project-card" data-dialog="project-03" type="button"><span class="project-index">P.03</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-03.jpg</small></span><span class="project-meta">HARNESS · VEHICLE</span><strong>ENVO UPT</strong><em>open case notes →</em></button>
-          <button class="project-card" data-dialog="project-04" type="button"><span class="project-index">P.04</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-04.jpg</small></span><span class="project-meta">CATEGORY · TOOLS</span><strong>Project Four</strong><em>open case notes →</em></button>
-          <button class="project-card" data-dialog="project-05" type="button"><span class="project-index">P.05</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-05.jpg</small></span><span class="project-meta">CATEGORY · TOOLS</span><strong>Project Five</strong><em>open case notes →</em></button>
-          <button class="project-card" data-dialog="project-06" type="button"><span class="project-index">P.06</span><span class="project-image-placeholder">ADD IMAGE<br><small>assets/projects/project-06.jpg</small></span><span class="project-meta">CATEGORY · TOOLS</span><strong>Project Six</strong><em>open case notes →</em></button>
+          <button class="project-card" data-dialog="project-04" type="button"><span class="project-index">P.01</span><img class="project-card-image" src="assets/graphics/car_jacks.jpeg" alt="FSAE electric race car during integration work"><time class="project-date">April 2026 — Present</time><strong>FSAE Electric Race Car Integration</strong><span class="project-summary">Mechanical, electrical, and software integration for a Formula SAE electric race car.</span><em>see more →</em></button>
+          <button class="project-card" data-dialog="project-01" type="button"><span class="project-index">P.02</span><img class="project-card-image" src="assets/graphics/debug_v1.png" alt="Smart Debugging Board V1"><time class="project-date">September 2025 — December 2025</time><strong>Smart Debugging Board V1</strong><span class="project-summary">A centralized 24 V interface for safely powering, debugging, and programming Formula Electric low-voltage boards.</span><em>see more →</em></button>
+          <button class="project-card" data-dialog="project-05" type="button"><span class="project-index">P.03</span><img class="project-card-image" src="assets/graphics/battery_hand.jpeg" alt="Battery and module debugging work"><time class="project-date">July 2026 — Present</time><strong>Battery and Module Debugging</strong><span class="project-summary">Testing, diagnosing, and debugging battery-system hardware and BMS modules.</span><em>see more →</em></button>
+          <button class="project-card" data-dialog="project-06" type="button"><span class="project-index">P.04</span><img class="project-card-image" src="assets/graphics/piano_assembled.JPG" alt="Assembled piano-playing robot"><time class="project-date">February 2026 — April 2026</time><strong>PCBAs for Piano-Playing Robot</strong><span class="project-summary">Electronics development for a robotic system designed to play a piano.</span><em>see more →</em></button>
+          <button class="project-card" data-dialog="project-03" type="button"><span class="project-index">P.05</span><img class="project-card-image" src="assets/graphics/arc4.jpg" alt="ARC4 decryption circuit on a DE1-SoC FPGA"><time class="project-date">November 2025</time><strong>ARC4 Decryption Circuit</strong><span class="project-summary">A hardware ARC4 stream-cipher implementation with a parallel accelerator that searches the full 24-bit key space.</span><em>see more →</em></button>
+          <button class="project-card" data-dialog="project-02" type="button"><span class="project-index">P.06</span><img class="project-card-image" src="assets/graphics/psm_empty.jpeg" alt="Pseudo Segment Testing Board"><time class="project-date">December 2024</time><strong>Pseudo Segment Testing Board</strong><span class="project-summary">A 14-cell test board for validating Formula Electric BMS voltage monitoring, active balancing, and thermal-protection algorithms.</span><em>see more →</em></button>
         </div>
 
-        <!-- Editing reminder showing where additional media can be imported. -->
-        <aside class="import-note">
-          <strong>YOUR GRAPHICS GO HERE ✂</strong>
-          <p>Add JPG, PNG, SVG, GIF, or GLB files to <code>assets/</code>, then replace any <code>.project-graphic</code> with an image or 3D viewer.</p>
-        </aside>
       </section>
 
     </main>
 
-    <!-- JavaScript inserts the current year into #year automatically. -->
-    <footer><p>© <span id="year"></span> Xinyi Zhao · Built like a well-loved lab notebook</p><a href="#top">Back to top ↑</a></footer>
+    <footer><a href="#top">Back to top ↑</a></footer>
 
-    <!-- Scrollable experience popups preserve the timeline/field-log style. -->
-    <dialog id="kardium-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 05.2026 — NOW</p><h2>Kardium</h2><h3>Electrical Engineering Intern</h3><div class="timeline-detail"><section><b>01 / OVERVIEW</b><p>Add a longer overview of your role here.</p></section><section><b>02 / RESPONSIBILITIES</b><p>Add responsibilities, test systems, hardware, and ownership here.</p></section><section><b>03 / IMPACT</b><p>Add measurable results and lessons here.</p></section></div><div class="graphic-dropzone">ADD APPROVED WORKPLACE IMAGE OR DIAGRAM</div></div></dialog>
-    <dialog id="formula-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 09.2024 — NOW</p><h2>UBC Formula Electric</h2><h3>Electrical Technical Director</h3><div class="timeline-detail"><section><b>01 / OVERVIEW</b><p>Add your leadership scope and team description.</p></section><section><b>02 / RESPONSIBILITIES</b><p>Add architecture, reviews, bring-up, and integration details.</p></section><section><b>03 / IMPACT</b><p>Add accomplishments and results.</p></section></div><div class="graphic-dropzone">ADD TEAM OR VEHICLE IMAGE</div></div></dialog>
-    <dialog id="envo-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 05 — 08.2025</p><h2>ENVO Drive Systems</h2><h3>Electrical Engineering Intern</h3><div class="timeline-detail"><section><b>01 / OVERVIEW</b><p>Add a longer overview of your internship.</p></section><section><b>02 / RESPONSIBILITIES</b><p>Add architecture, harness, and sensor validation work.</p></section><section><b>03 / IMPACT</b><p>Add outcomes and lessons learned.</p></section></div><div class="graphic-dropzone">ADD VEHICLE OR HARNESS IMAGE</div></div></dialog>
+    <dialog id="kardium-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 05.2026 — NOW</p><h2>Kardium</h2><h3>Electrical Engineering Intern</h3><a class="company-link" href="https://kardium.com/" target="_blank" rel="noreferrer">Website<span aria-hidden="true">↗</span></a><section class="case-section"><b>OVERVIEW</b><p>I am currently interning with Kardium’s Sustaining Electrical Engineering team. Kardium develops medical-device technology for treating atrial fibrillation using PF and RF ablation techniques. My work focuses on production-level test-fixture PCBAs, external fixtures, and automated tests for electronics used in its medical devices.</p></section><section class="case-section"><b>RESPONSIBILITIES</b><ul><li>Owned the end-to-end proposal, design, and validation of production test processes for medical-device PCBAs, integrating boundary scan (JTAG), laboratory equipment, LabVIEW, and TestStand to achieve more than 86% test coverage and detect assembly defects earlier.</li><li>Designed a custom multipurpose test-platform PCBA that improved boundary-scan and probe access, added reliable current sensing, streamlined production testing for a new board, and supported standalone functional testing and debugging.</li><li>Developed boundary-scan tests for solder-joint faults and functional tests for IC operation, including sequenced verification of LEDs, I2C, SPI, flash and memory devices, and FPGA programming.</li><li>Integrated TestStand and LabVIEW with boundary-scan software to create unified automated test procedures and establish production-test workflows.</li><li>Evaluated ProVision, XJDeveloper, and ScanExpress for production deployment through prototype test sequences and vendor coordination.</li><li>Supported component lifecycle and supply-chain decisions by reviewing availability and obsolescence risks, then identifying and validating alternative parts.</li></ul></section></div></dialog>
+    <dialog id="formula-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 09.2024 — NOW</p><h2>UBC Formula Electric</h2><h3>Electrical Technical Director</h3><section class="case-section"><b>OVERVIEW</b><p>Add your leadership scope and team description.</p></section><section class="case-section"><b>RESPONSIBILITIES</b><p>Add architecture, reviews, bring-up, and integration details.</p></section><section class="case-section"><b>REFLECTION</b><p>Add accomplishments and results.</p></section><div class="graphic-dropzone">ADD TEAM OR VEHICLE IMAGE</div></div></dialog>
+    <dialog id="envo-role" class="project-dialog role-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">WORK LOG · 05 — 08.2025</p><h2>ENVO Drive Systems</h2><h3>Electrical Engineering Intern</h3><a class="company-link" href="https://upt.envodrive.com/" target="_blank" rel="noreferrer">Website<span aria-hidden="true">↗</span></a><section class="case-section"><b>OVERVIEW</b><p>I completed my first engineering internship at ENVO Drive Systems from May through August 2025. I contributed to harness design and electrical-architecture planning for the Utility Personal Transporter (UPT), a low-speed, four-wheel-drive electric vehicle.</p></section><section class="case-section"><b>RESPONSIBILITIES</b><ul><li>Owned the vehicle electrical-harness design, integrating sensors, hub motors, power distribution, ECUs, the battery, and mechanical systems. Produced wiring diagrams and high-level electrical-architecture block diagrams.</li><li>Created schematics in KiCad and developed ESP32-based test circuits to collect and verify hub-motor thermistor data, validating sensor accuracy and reliability.</li><li>Performed failure analysis on vehicle-harness operation, using the findings to guide component selection and mechanical integration.</li></ul></section><section class="case-section"><b>REFLECTION</b><p>This internship gave me practical experience with professional electric-vehicle development and introduced me to engineers deeply committed to sustainable transportation. It strengthened my skills in hands-on prototyping, technical research, testing, and engineering documentation.</p></section></div></dialog>
 
-    <!-- Six reusable project popups. Copy these content blocks to expand each case study. -->
-    <dialog id="project-01" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 01</p><h2>UBC Formula Electric</h2><div class="graphic-dropzone large">ADD HERO IMAGE, VIDEO, OR 3D VIEWER</div><section class="case-section"><b>OVERVIEW</b><p>Describe the problem, vehicle, team, and project goal here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your responsibilities, decisions, and design process.</p></section><section class="case-section"><b>TOOLS + TECHNOLOGY</b><div class="dialog-tags"><span>Altium</span><span>CAN</span><span>Power Electronics</span></div></section><div class="graphic-dropzone">ADD SCHEMATIC, PCB LAYOUT, OR TEST RESULTS</div><section class="case-section"><b>RESULTS + REFLECTION</b><p>Add outcomes, measurements, and what you learned.</p></section></div></dialog>
-    <dialog id="project-02" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 02</p><h2>Production Test Platform</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add the problem and project goal.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your design and validation process.</p></section><section class="case-section"><b>TOOLS + TECHNOLOGY</b><div class="dialog-tags"><span>JTAG</span><span>LabVIEW</span><span>TestStand</span></div></section><div class="graphic-dropzone">ADD FIXTURE, COVERAGE CHART, OR TEST RESULTS</div><section class="case-section"><b>RESULTS + REFLECTION</b><p>Add outcomes and lessons.</p></section></div></dialog>
-    <dialog id="project-03" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 03</p><h2>ENVO UPT</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add the vehicle and system goal.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add architecture and harness details.</p></section><section class="case-section"><b>TOOLS + TECHNOLOGY</b><div class="dialog-tags"><span>KiCad</span><span>ESP32</span><span>FMEA</span></div></section><div class="graphic-dropzone">ADD HARNESS DRAWING OR BLOCK DIAGRAM</div><section class="case-section"><b>RESULTS + REFLECTION</b><p>Add outcomes and lessons.</p></section></div></dialog>
-    <dialog id="project-04" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 04</p><h2>Project Four</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add project content here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your work here.</p></section><div class="graphic-dropzone">ADD SECONDARY MEDIA</div></div></dialog>
-    <dialog id="project-05" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 05</p><h2>Project Five</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add project content here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your work here.</p></section><div class="graphic-dropzone">ADD SECONDARY MEDIA</div></div></dialog>
-    <dialog id="project-06" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 06</p><h2>Project Six</h2><div class="graphic-dropzone large">ADD HERO IMAGE</div><section class="case-section"><b>OVERVIEW</b><p>Add project content here.</p></section><section class="case-section"><b>MY CONTRIBUTION</b><p>Add your work here.</p></section><div class="graphic-dropzone">ADD SECONDARY MEDIA</div></div></dialog>
-  </body>
-</html>
+    <dialog id="project-01" class="project-dialog debug-project"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 02 · PCB DESIGN</p><h2>Smart Debugging Board V1</h2><div class="project-details"><time>September 2025 — December 2025</time><div class="project-skills"><span>PCB Design (Altium, KiCad)</span><span>Power Electronics (Buck/Boost, LDO, PMIC)</span><span>Oscilloscope</span><span>DMM</span></div></div><img class="case-image project-hero-image" src="assets/graphics/debug_v1_3d.png" alt="3D render of the Smart Debugging Board V1"><section class="case-section"><b>DESCRIPTION</b><ul><li>Centralized interface for debugging and testing the team’s 24 V low-voltage system boards.</li><li>Consolidates the on-car USB, CAN, J-Link, and other debugging connectors into one off-board micro-HDMI connector.</li><li>Supports laptop USB-C, banana-jack, and barrel-jack inputs. With laptop power, a TPS61376 boost converter steps the 5 V USB input up to 24 V.</li><li>This project taught me the complete PCB design process, from component research and selection through schematic capture and layout.</li></ul></section><section class="case-section"><b>BLOCK DIAGRAMS + LOGIC</b><h3>Overall diagram</h3><img class="case-image" src="assets/graphics/debug_v1_block.png" alt="Overall block diagram for the Smart Debugging Board V1"><h3>Power supply and protection</h3><img class="case-image" src="assets/graphics/debug_v1_power.png" alt="Power supply and protection block diagram"><ul><li><strong>Fuse_EN:</strong> Uses MOSFETs to drive the enable pins of every e-fuse and connects to VCC_Logic through the test PCB.</li><li><strong>VCC_Logic:</strong> A low-power 5 V logic rail supplied to the target PCB so higher-power rails must be explicitly enabled.</li><li>Fuse_EN and VCC_Logic are shorted together by default on the test board, enabling the fuses unless intentionally overridden.</li><li>Two 50 kΩ resistors are placed physically far apart to limit current through VCC_Logic and reduce damage risk during a short.</li><li>24V_PJ and 24V_BP are diode-ORed external 24 V inputs, allowing only the higher-voltage source to power the HDMI interface.</li></ul></section><section class="case-section"><b>ERROR ANALYSIS</b><ol class="risk-list"><li><h3>Preventing excessive laptop current draw</h3><p>If connected to the full vehicle harness, the board could draw more current than a laptop USB-C port should supply.</p><p><strong>Solution:</strong> Primary and secondary e-fuses provide overcurrent and reverse-current protection. Fuse_EN controls all e-fuses through MOSFET level shifting, while VCC_Logic forces the target board to explicitly enable high-power rails. This prevents laptop back-driving and overload.</p></li><li><h3>Protecting the micro-HDMI connector</h3><p>The HDMI pins are rated for only 0.5 A, so an external supply could otherwise force damaging current through the connector.</p><p><strong>Solution:</strong> Upstream e-fuses enforce current limits, and high-power inputs remain isolated until explicitly enabled.</p></li><li><h3>Reducing user-error risks</h3><p>Users may connect multiple supplies, reverse the banana jacks, or physically short components.</p><p><strong>Solution:</strong> The design uses diode OR-ing, reverse-polarity protection, reviewed connector spacing, and a planned enclosure that physically constrains misuse.</p></li><li><h3>Maintaining USB Full-Speed integrity</h3><p>Routing 12 Mbps USB through several connectors, cables, and another PCB can degrade the signal.</p><p><strong>Solution:</strong> I sourced a repeater that explicitly buffers USB Full Speed rather than transparently passing FS/LS signals.</p></li></ol></section><section class="case-section"><b>SCHEMATICS</b><p>Review the complete Smart Debugging Board V1 schematic below or open it in a separate tab.</p><object class="schematic-viewer" data="assets/Debug_Schematic.pdf" type="application/pdf" aria-label="Smart Debugging Board V1 schematic PDF"><p>Your browser cannot display the embedded PDF. <a href="assets/Debug_Schematic.pdf" target="_blank" rel="noreferrer">Open the schematic PDF</a>.</p></object><a class="schematic-link" href="assets/Debug_Schematic.pdf" target="_blank" rel="noreferrer">Open full schematic PDF <span aria-hidden="true">↗</span></a></section><section class="case-section"><b>PCB LAYOUT</b><p>Four-layer stackup:</p><ol><li>Signal traces and power polygons</li><li>Power polygons and ground</li><li>Ground</li><li>Signal traces and ground</li></ol><div class="layout-views"><figure><img class="case-image" src="assets/graphics/debug_top.png" alt="Top view of the PCB layout with layers 1 and 4 visible"><figcaption>Top view — layers 1 and 4 visible</figcaption></figure><figure><img class="case-image" src="assets/graphics/debug_bottom.png" alt="Bottom view of the PCB layout with layers 1 and 4 visible"><figcaption>Bottom view — layers 1 and 4 visible</figcaption></figure></div></section><div class="step-viewer bottom-step-viewer" data-step-src="assets/Debug_STEP.step"><div class="step-status">Loading interactive 3D model…</div><div class="step-canvas" aria-label="Interactive 3D model of Smart Debugging Board V1"></div><div class="step-help">Drag to rotate · scroll to zoom</div></div></div></dialog>
+    <dialog id="project-02" class="project-dialog debug-project"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 06 · PCB DESIGN</p><h2>Pseudo Segment Testing Board</h2><div class="project-details"><time>December 2024</time><div class="project-skills"><span>PCB Design (Altium, KiCad)</span><span>Oscilloscope</span><span>Power Supply</span><span>DMM</span></div></div><img class="case-image project-hero-image" src="assets/graphics/psm_3d.png" alt="3D render of the Pseudo Segment Testing Board"><section class="case-section"><b>DESCRIPTION</b><p>During my first year on the UBC Formula Electric design team, I designed a pseudo segment testing board in <strong>Altium Designer</strong>.</p><ul><li>Supports validation of Battery Management System algorithms using physical 18650 lithium-ion cells. It interfaces directly with the team’s BMS module boards for cell-voltage monitoring and active balancing, and with thermistor boards that provide battery-cell temperature feedback.</li><li>Tests up to 14 cells. Each cell is routed through an independent switch that enables or isolates its connection to the BMS through designated mounting holes.</li><li>Includes adjustable potentiometers that simulate temperature variations at the thermistor inputs, enabling verification of thermal-response and protection algorithms.</li><li>Receives power through two Molex connectors for stable operation and compatibility with the existing BMS hardware.</li></ul></section><section class="case-section"><b>REFLECTIONS</b><ul><li>I gained a deeper understanding of the battery management system and how it functioned in our car through designing and testing this board.</li><li>I learned the importance of carefully checking footprints and 3D models after we ordered a board with misaligned battery clips. Because the clips were through-hole and both pins shared the same net, we were able to bend one pin and fit each clip in the correct orientation.</li></ul></section><section class="case-section"><b>SCHEMATIC</b><p>Review the complete Pseudo Segment Testing Board schematic below or open it in a separate tab.</p><object class="schematic-viewer" data="assets/psm_schematic.pdf" type="application/pdf" aria-label="Pseudo Segment Testing Board schematic PDF"><p>Your browser cannot display the embedded PDF. <a href="assets/psm_schematic.pdf" target="_blank" rel="noreferrer">Open the schematic PDF</a>.</p></object><a class="schematic-link" href="assets/psm_schematic.pdf" target="_blank" rel="noreferrer">Open full schematic PDF <span aria-hidden="true">↗</span></a></section><section class="case-section"><b>PCB LAYOUT</b><img class="case-image psm-layout-image" src="assets/graphics/psm_layout.png" alt="PCB layout for the Pseudo Segment Testing Board"></section><div class="step-viewer bottom-step-viewer" data-step-src="assets/psm_STEP.step"><div class="step-status">Loading interactive 3D model…</div><div class="step-canvas" aria-label="Interactive 3D model of the Pseudo Segment Testing Board"></div><div class="step-help">Drag to rotate · scroll to zoom</div></div></div></dialog>
+    <dialog id="project-03" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 05 · FPGA DIGITAL DESIGN</p><h2>ARC4 Decryption Circuit</h2><div class="project-details"><time>November 2025</time><div class="project-skills"><span>Verilog</span><span>FPGA (ModelSim, Quartus)</span></div></div><section class="case-section"><b>DESCRIPTION</b><ul><li>Implemented the complete ARC4 stream cipher in hardware on the DE1-SoC FPGA, including state initialization, key scheduling, pseudo-random generation, and decryption.</li><li>Designed a memory-centric architecture using multiple M10K on-chip RAM blocks for state, ciphertext, and plaintext storage.</li><li>Built a brute-force key-cracking engine that searches the entire 24-bit key space and validates plaintext using ASCII ranges.</li><li>Developed a parallel “doublecrack” accelerator with two cracking cores working on separate halves of the key space.</li><li>Used an active-OR arbitration mechanism to safely manage shared plaintext memory between the two parallel cores.</li><li>Achieved a significantly faster cracking implementation than the baseline single-core design.</li><li>Verified functionality using ModelSim RTL and post-synthesis simulation, along with Quartus’ In-System Memory Editor.</li><li>Strengthened my SystemVerilog, FPGA design, memory-system, hardware-microprotocol, and parallel digital-architecture skills.</li></ul></section><section class="case-section"><b>SOURCE CODE</b><a class="source-code-button" href="https://github.com/xxinyizhao/RC4-Decryption-Circuit" target="_blank" rel="noreferrer">View source code on GitHub <span aria-hidden="true">↗</span></a></section></div></dialog>
+    <dialog id="project-04" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 01 · FSAE ELECTRIC</p><h2>FSAE Electric Race Car Integration</h2><div class="project-details"><time>April 2026 — Present</time><div class="project-skills"><span>Wire Harnessing</span><span>CAN</span><span>Git</span><span>Jira/Confluence</span></div></div><div class="graphic-dropzone large">ADD VEHICLE OR TEAM PHOTO</div><section class="case-section"><b>OVERVIEW</b><p>Add an overview of the race car, competition cycle, and integration goals.</p></section><section class="case-section"><b>MECHANICAL INTEGRATION</b><p>Add packaging, mounting, serviceability, and mechanical-interface work.</p></section><section class="case-section"><b>ELECTRICAL INTEGRATION</b><p>Add electrical architecture, harnessing, PCB, sensor, and power-system integration work.</p></section><section class="case-section"><b>SOFTWARE INTEGRATION</b><p>Add CAN communication, controls, telemetry, firmware, and system-validation work.</p></section><section class="case-section"><b>RESULTS + REFLECTIONS</b><p>Add integration outcomes, competition results, challenges, and lessons learned.</p></section><div class="graphic-dropzone">ADD INTEGRATION, VEHICLE, OR COMPETITION PHOTOS</div></div></dialog>
+    <dialog id="project-05" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 03 · BATTERY SYSTEMS</p><h2>Battery and Module Debugging</h2><div class="project-details"><time>July 2026 — Present</time><div class="project-skills"><span>Oscilloscope</span><span>DMM</span><span>CAN</span><span>isoSPI</span></div></div><div class="graphic-dropzone large">ADD BATTERY OR DEBUGGING PHOTO</div><section class="case-section"><b>OVERVIEW</b><p>Add the battery-system architecture, module function, and debugging objective.</p></section><section class="case-section"><b>DIAGNOSTIC PROCESS</b><p>Add symptoms, hypotheses, measurements, test equipment, and fault-isolation steps.</p></section><section class="case-section"><b>MODULE TESTING</b><p>Add BMS module, cell-monitoring, balancing, thermistor, communication, and bench-test details.</p></section><section class="case-section"><b>FIXES + VALIDATION</b><p>Add implemented fixes, regression tests, safety checks, and final validation results.</p></section><section class="case-section"><b>RESULTS + REFLECTIONS</b><p>Add outcomes and lessons learned from debugging the battery system.</p></section><div class="graphic-dropzone">ADD TEST SETUP, WAVEFORM, OR MODULE PHOTOS</div></div></dialog>
+    <dialog id="project-06" class="project-dialog"><button class="dialog-close" type="button" aria-label="Close">×</button><div class="dialog-scroll"><p class="stamp">CASE FILE 04 · ROBOTICS</p><h2>PCBAs for Piano-Playing Robot</h2><div class="project-details"><time>February 2026 — April 2026</time><div class="project-skills"><span>PCB Design (Altium, KiCad)</span><span>THT/SMD Soldering</span><span>Oscilloscope</span><span>DMM</span></div></div><div class="graphic-dropzone large">ADD ROBOT OR ELECTRONICS PHOTO</div><section class="case-section"><b>OVERVIEW</b><p>Add an overview of the piano-playing robot and its electronic-system requirements.</p></section><section class="case-section"><b>ELECTRONICS DESIGN</b><p>Add circuit, actuator, power, sensing, control, and interface details.</p></section><section class="case-section"><b>INTEGRATION + TESTING</b><p>Add mechanical and software integration, test results, challenges, and lessons learned.</p></section><div class="graphic-dropzone">ADD CIRCUIT, PROTOTYPE, OR TESTING PHOTO</div></div></dialog>
+  </body></html>

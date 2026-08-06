@@ -1,50 +1,38 @@
-/* ================================================================
-   DESIGN SETTINGS
-   Change these variables to recolor or resize the whole website.
-   ================================================================ */
 :root {
   --ink: #f1e8d8;
   --paper: #050505;
   --paper-light: #f3e5c8;
   --paper-dark: #d8c7a8;
-  --rust: #ffa4f9;
-  --blue: #ffa4f9;
+  --rust: #FFC6CA;
+  --blue: #FFC6CA;
   --line: #665d62;
   --paper-ink: #211c1d;
   --page: 1240px;
 }
 
-/* Include padding and borders inside every element's declared size. */
 * { box-sizing: border-box; }
-/* Animate jumps to anchors such as #projects. */
 html { scroll-behavior: smooth; }
 
-/* Page-wide colors, texture, typography, and default spacing behavior. */
 body {
   margin: 0;
   color: var(--ink);
   background-color: #050505;
-  background-image: linear-gradient(rgba(255, 164, 249, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 164, 249, .08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 198, 202, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 198, 202, .08) 1px, transparent 1px);
   background-size: 36px 36px;
   font: 16px/1.55 "Inter", sans-serif;
 }
 
-/* Links inherit the surrounding color unless a section overrides it. */
 a { color: inherit; }
-/* Hide the accessibility shortcut until it receives keyboard focus. */
 .skip-link { position: fixed; top: 0; left: 1rem; z-index: 99; padding: .7rem 1rem; background: black; transform: translateY(-120%); }
 .skip-link:focus { transform: none; }
 
-/* ================================================================
-   STICKY MENU HEADER
-   ================================================================ */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 20;
   width: min(100%, var(--page));
   margin: 0 auto;
-  padding: 20px 32px;
+  padding: 18px clamp(16px, 3vw, 28px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,28 +44,27 @@ a { color: inherit; }
 }
 
 .site-name { display: flex; align-items: center; gap: 10px; font-weight: 600; text-decoration: none; }
-.site-name span { font: 11px "DM Mono"; padding: 7px; border: 1px solid; border-radius: 50%; }
+.site-name span { display: block; padding: 0; border: 0; }
+.site-name span svg { width: 30px; height: 30px; display: block; fill: none; stroke: currentColor; stroke-width: 1.4; }
 nav { display: flex; gap: 28px; }
-nav a { font: 10px "DM Mono"; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+nav a { font: 12px "DM Mono"; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
 nav a:hover { color: var(--rust); }
 
-/* Every major section is presented as one archival sheet of paper. */
 .scrapbook-page {
   position: relative;
   width: min(100%, var(--page));
   min-height: 760px;
   margin: 0 auto;
-  padding: clamp(70px, 10vw, 130px);
+  padding: clamp(65px, 8vw, 105px) clamp(22px, 5vw, 64px);
   overflow: hidden;
   background-color: rgba(5, 5, 5, .98);
-  background-image: linear-gradient(rgba(255, 164, 249, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 164, 249, .09) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 198, 202, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 198, 202, .09) 1px, transparent 1px);
   background-size: 36px 36px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
 
-/* Reusable technical-label typography. */
 .stamp, .section-label, .project-meta, time {
   font: 10px "DM Mono";
   letter-spacing: .12em;
@@ -91,97 +78,92 @@ nav a:hover { color: var(--rust); }
   border: 1px solid var(--rust);
   transform: rotate(-1deg);
 }
+.stamp { display: none; }
 
-/* Remove browser heading margins and establish the editorial type scale. */
 h1, h2, h3, p { margin-top: 0; }
 h1 { margin: 32px 0; font-family: "Instrument Serif", serif; line-height: .82; letter-spacing: -.055em; }
-.hero-greeting { display: block; margin-bottom: .12em; font-size: clamp(40px, 5vw, 68px); font-weight: 400; }
-.hero-name { position: relative; width: fit-content; display: block; overflow: hidden; color: var(--rust); border-right: .045em solid var(--rust); font-size: clamp(76px, 10vw, 138px); font-style: normal; font-weight: 400; letter-spacing: -.04em; line-height: .92; white-space: nowrap; animation: type-name 1.5s steps(10, end) .25s both, type-caret .75s step-end 3; }
-@keyframes type-name { from { max-width: 0; } to { max-width: 8ch; } }
-@keyframes type-caret { 0%, 100% { border-color: transparent; } 50% { border-color: var(--rust); } }
-h2 { font: 400 clamp(48px, 7vw, 88px)/.92 "Instrument Serif", serif; letter-spacing: -.045em; }
+.hero-greeting { display: block; margin-top: .35em; margin-bottom: 0; font-size: clamp(28px, 3.5vw, 48px); font-weight: 400; }
+.hero-name { display: block; color: var(--rust); font-size: clamp(58px, 7.5vw, 104px); font-style: normal; font-weight: 400; letter-spacing: -.04em; line-height: .92; }
+h2 { font: 400 clamp(34px, 4.9vw, 62px)/.94 "Instrument Serif", serif; letter-spacing: -.04em; }
 
-/* ================================================================
-   HERO / OPENING ARCHIVE PAGE
-   ================================================================ */
 .hero {
-  min-height: 900px;
+  min-height: 760px;
+  padding-top: clamp(36px, 5vw, 60px);
+  padding-bottom: clamp(36px, 5vw, 60px);
   display: grid;
   grid-template-columns: .9fr 1.1fr;
   align-items: center;
   background-color: var(--paper);
-  background-image: linear-gradient(rgba(255, 164, 249, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 164, 249, .09) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 198, 202, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 198, 202, .09) 1px, transparent 1px);
   background-size: 36px 36px;
-}
-
-.hero::after {
-  content: "ARCHIVE NO. 04 — ELECTRICAL SYSTEMS";
-  position: absolute;
-  right: 30px;
-  bottom: 28px;
-  font: 9px "DM Mono";
-  letter-spacing: .12em;
 }
 
 .hero-copy { position: relative; z-index: 3; }
 .lede { max-width: 470px; font-size: clamp(17px, 1.8vw, 22px); }
 .paper-button { display: inline-block; margin-top: 22px; padding-bottom: 4px; border-bottom: 1px solid; font-size: 13px; text-decoration: none; }
 .paper-button:hover { color: var(--rust); }
-.hero-links { width: min(100%, 260px); display: flex; gap: 11px; flex-direction: column; margin-top: 38px; }
+.hero-directory { width: min(100%, 260px); margin-top: 38px; }
+.hero-links { width: 100%; display: flex; gap: 11px; flex-direction: column; }
 .hero-links a { position: relative; width: 100%; padding: 12px 14px; display: grid; grid-template-columns: 25px 1fr auto; align-items: center; gap: 12px; color: var(--paper-ink); background: var(--paper-light); border: 1px solid var(--paper-ink); box-shadow: 3px 4px 0 var(--rust); font: 12px "DM Mono"; text-decoration: none; transition: transform .2s, box-shadow .2s; }
 .hero-links svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .hero-links b { font-size: 14px; font-weight: 400; }
 .hero-links a:hover, .hero-links a:focus-visible { z-index: 2; transform: translateX(6px); box-shadow: 6px 6px 0 var(--rust); outline: none; }
-
-/* The relative container anchors the absolutely positioned paper scraps. */
 .hero-collage { position: relative; min-height: 610px; }
-.polaroid { position: absolute; top: 30px; left: 5%; width: min(460px, 88%); margin: 0; padding: 13px 13px 28px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 5px 10px 24px rgba(0, 0, 0, .55); transform: rotate(-3deg); cursor: grab; touch-action: none; }
+.polaroid { position: absolute; z-index: 2; top: 35px; left: 7%; width: min(470px, 88%); margin: 0; padding: 13px 13px 28px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 5px 10px 24px rgba(0, 0, 0, .55); }
 .polaroid::before, .tape { content: ""; position: absolute; top: -18px; left: 50%; z-index: 4; width: 100px; height: 32px; background: rgba(243, 229, 200, .72); transform: translateX(-50%) rotate(-2deg); clip-path: polygon(2% 8%, 98% 0, 96% 92%, 0 100%); }
-.photo-placeholder { width: 100%; height: 400px; display: block; object-fit: cover; color: #5a6668; background: #aeb7b4; }
+.photo-placeholder { width: 100%; height: 500px; display: block; object-fit: cover; color: #5a6668; background: #aeb7b4; }
 .photo-placeholder svg { width: 72%; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .photo-placeholder span { font: 10px "DM Mono"; text-transform: uppercase; }
-.polaroid figcaption { padding: 14px 8px 0; font: 20px "Caveat"; }
-.sticky-note { position: absolute; right: 0; bottom: 60px; z-index: 4; width: 190px; padding: 30px 24px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 5px 7px 0 rgba(255, 164, 249, .45); font: 20px/1.15 "Caveat"; transform: rotate(4deg); cursor: grab; touch-action: none; }
+.polaroid figcaption { padding: 14px 8px 0; font: 20px "DM Mono", monospace; }
+.sticky-note { position: absolute; right: -54px; bottom: -20px; z-index: 4; width: 255px; min-height: 185px; padding: 36px 28px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 7px 9px 0 rgba(255, 198, 202, .45); font: 23px/1.15 "DM Mono", monospace; transform: rotate(4deg); cursor: grab; touch-action: none; }
 .sticky-note strong { display: block; margin-bottom: 10px; font-weight: 600; }
 .sticky-note span { font-size: 18px; }
-.png-scrap { position: absolute; z-index: 3; margin: 0; padding: 8px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 4px 6px 0 rgba(255, 164, 249, .4); cursor: grab; touch-action: none; }
-.png-scrap-one { top: 8px; left: -35px; width: 125px; transform: rotate(-7deg); }
-.png-scrap-two { right: -25px; top: 215px; width: 145px; transform: rotate(6deg); }
-.png-scrap-three { left: 5px; bottom: 8px; width: 135px; transform: rotate(4deg); }
-.png-placeholder { aspect-ratio: 1; display: grid; place-content: center; gap: 5px; border: 1px dashed var(--paper-ink); font: 10px "DM Mono"; text-align: center; }
-.png-placeholder small { max-width: 105px; padding: 0 5px; color: #756b67; font-size: 7px; overflow-wrap: anywhere; }
-img.png-placeholder { width: 100%; height: auto; display: block; border: 0; object-fit: contain; }
-.circuit-doodle { position: absolute; top: 0; right: -2%; width: 250px; fill: none; stroke: rgba(255, 164, 249, .7); stroke-width: 1.2; }
+.circuit-doodle { position: absolute; top: 0; right: -2%; width: 250px; fill: none; stroke: rgba(255, 198, 202, .7); stroke-width: 1.2; }
 .circuit-doodle circle { fill: var(--paper); }
-.drag-hint { position: absolute; bottom: 35px; left: 50%; font: 15px "Caveat"; }
+.drag-hint { position: absolute; bottom: 35px; left: 50%; font: 15px "DM Mono", monospace; }
 
-/* ================================================================
-   ABOUT PAGE
-   ================================================================ */
-.section-label { display: inline-block; margin-bottom: 70px; padding-bottom: 5px; border-bottom: 1px solid; }
+.section-label { display: inline-block; margin-bottom: 35px; padding-bottom: 5px; border-bottom: 1px solid; }
 .about { min-height: 780px; background-color: rgba(0, 0, 0, .96); }
-.about-layout { display: grid; grid-template-columns: minmax(240px, .75fr) minmax(0, 1.35fr); gap: clamp(55px, 8vw, 120px); align-items: start; }
+.about > h2 { margin: 0 0 clamp(28px, 4vw, 44px); color: var(--ink); }
+.about-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .9fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
 .about-intro { position: sticky; top: 115px; }
-.about-intro h2 { font-size: clamp(42px, 5vw, 68px); }
+.about-intro h2 { font-size: clamp(30px, 3.5vw, 48px); }
 .about-skills h2 { margin-bottom: 38px; }
 .about-skills > .handwritten { font-size: clamp(46px, 5vw, 68px); line-height: 1; }
 .skill-list { border-top: 1px solid var(--line); }
 .skill-list section { padding: 20px 0; border-bottom: 1px solid var(--line); }
-.skill-list h3 { margin: 0 0 16px; color: var(--rust); font: 600 18px "DM Mono"; letter-spacing: .06em; text-transform: uppercase; }
+.skill-list h3 { margin: 0 0 10px; color: var(--rust); font: 600 13px "DM Mono"; letter-spacing: .06em; text-transform: uppercase; }
 .skill-list p { margin: 0; color: #c9c0b2; font-size: 13px; line-height: 1.75; }
 .skill-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.skill-tags span { padding: 7px 10px; color: #c9c0b2; border: 1px solid var(--line); background: rgba(5, 5, 5, .72); font-size: 12px; cursor: default; transition: color .18s, background .18s, border-color .18s, transform .18s, box-shadow .18s; }
+.skill-tags span { padding: 7px 10px; color: #c9c0b2; border: 1px solid var(--line); background: rgba(5, 5, 5, .72); font-size: 12px; cursor: default; transition: color .18s, background .18s, border-color .18s; }
 .skill-tags span:hover,
-.skill-tags span:focus-visible { color: var(--paper-ink); background: var(--rust); border-color: var(--rust); box-shadow: 3px 3px 0 var(--paper-light); transform: translateY(-3px) rotate(-1deg); outline: none; }
+.skill-tags span:focus-visible { color: var(--paper-ink); background: var(--rust); border-color: var(--rust); box-shadow: none; transform: none; outline: none; }
 .about-margin-note { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); color: #bdb3a5; font: 10px/1.7 "DM Mono"; letter-spacing: .08em; text-transform: uppercase; }
-.about-story { max-width: 760px; }
-.about-story > h2 { margin-bottom: 42px; color: var(--rust); }
-.about-story p { margin-bottom: 28px; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.75; }
-.jot-note { margin: 38px 0; padding: 0 0 30px; color: var(--ink); border-bottom: 1px solid var(--line); background: transparent; }
-.jot-note h3 { margin: 0 0 18px; color: var(--rust); font: 600 25px "Caveat"; }
+.about-story { max-width: 680px; }
+.about-story p { margin: 0; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.75; }
+.jot-note { margin: 30px 0 0; padding: 26px 0 0; color: var(--ink); border-top: 1px solid var(--line); background: transparent; }
+.jot-note h3 { margin: 0 0 10px; color: var(--rust); font: 600 17px/1.4 "Inter", sans-serif; }
 .jot-note ul { margin: 0; padding-left: 22px; }
-.jot-note li { margin-bottom: 9px; padding-left: 4px; font-size: 15px; line-height: 1.6; }
+.jot-note li { margin-bottom: 8px; padding-left: 4px; font-size: 14px; line-height: 1.55; }
 .jot-note li::marker { color: var(--rust); }
+.about-gallery { display: grid; grid-template-columns: 1fr; gap: 18px; align-self: start; }
+.about-gallery figure,
+.experience-gallery figure { position: relative; min-height: 190px; margin: 0; overflow: hidden; display: grid; place-items: center; color: #91857c; background-color: var(--paper-light); background-image: linear-gradient(rgba(33,28,29,.11) 1px, transparent 1px), linear-gradient(90deg,rgba(33,28,29,.11) 1px,transparent 1px); background-size: 22px 22px; border: 1px solid var(--line); font: 10px "DM Mono"; }
+.about-gallery figure { min-height: 0; aspect-ratio: 16 / 9; }
+.about-gallery figure:first-child { grid-column: auto; min-height: 0; }
+.about-gallery img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.about-gallery figcaption,
+.experience-gallery figcaption { position: absolute; inset: auto 0 0; padding: 12px 14px; color: var(--paper-ink); background: var(--rust); font: 15px "DM Mono", monospace; transform: translateY(100%); transition: transform .22s ease; }
+.about-gallery figcaption { font-family: "Inter", sans-serif; }
+.about-gallery figure:hover figcaption,
+.about-gallery figure:focus-within figcaption,
+.experience-gallery figure:hover figcaption,
+.experience-gallery figure:focus-within figcaption { transform: translateY(0); }
+
+.skills-section > h2 { margin-bottom: 22px; color: var(--ink); font-family: "Instrument Serif", serif; font-weight: 400; }
+.skills-section .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 45px; }
+.skills-section { min-height: 0; padding-top: clamp(44px, 5vw, 68px); padding-bottom: clamp(30px, 4vw, 48px); }
+.skills-section .skill-list section { padding: 15px 0; }
 .about-actions { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 45px; }
 .about-actions .paper-button {
   position: relative;
@@ -197,7 +179,7 @@ img.png-placeholder { width: 100%; height: auto; display: block; border: 0; obje
   box-shadow: none;
   filter: drop-shadow(5px 6px 0 var(--rust));
   clip-path: polygon(1% 5%, 24% 1%, 49% 4%, 73% 0, 99% 4%, 97% 51%, 100% 96%, 72% 99%, 48% 96%, 23% 100%, 2% 96%);
-  font: 600 22px/1 "Caveat";
+  font: 600 22px/1 "DM Mono", monospace;
   text-align: center;
   transform: rotate(-1deg);
   transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, color .25s, background .25s;
@@ -220,39 +202,49 @@ img.png-placeholder { width: 100%; height: auto; display: block; border: 0; obje
 .about-actions .paper-button:active { transform: translate(4px, 5px) rotate(0) scale(.98); filter: drop-shadow(1px 2px 0 var(--rust)); transition-duration: .08s; }
 .about-actions .paper-button:nth-child(2):active { filter: drop-shadow(1px 2px 0 var(--paper-light)); }
 
-.handwritten { margin-bottom: 10px; color: var(--rust); font: 22px "Caveat"; }
-.notebook-note { position: relative; align-self: start; margin-top: 40px; padding: 48px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 5px 7px 0 rgba(255, 164, 249, .32); transform: rotate(1deg); font-family: "Instrument Serif", serif; font-size: 21px; }
+.handwritten { margin-bottom: 10px; color: var(--rust); font: 22px "DM Mono", monospace; }
+.notebook-note { position: relative; align-self: start; margin-top: 40px; padding: 48px; color: var(--paper-ink); background: var(--paper-light); box-shadow: 5px 7px 0 rgba(255, 198, 202, .32); transform: rotate(1deg); font-family: "Instrument Serif", serif; font-size: 21px; }
 .notebook-note a { font-family: "Inter", sans-serif; font-size: 13px; font-weight: 600; }
 .sticker-row { display: flex; margin: 100px 0 0; padding: 24px 0 0; gap: 30px; flex-wrap: wrap; border-top: 1px solid var(--line); list-style: none; }
 .sticker-row li { font: 10px "DM Mono"; letter-spacing: .09em; }
 .sticker-row li::before { content: "× "; color: var(--rust); }
 
-/* ================================================================
-   EXPERIENCE TIMELINE
-   ================================================================ */
-.experience { background-color: rgba(0, 0, 0, .97); }
-.timeline { margin-top: 75px; border-top: 1px solid var(--ink); }
+.experience { padding-bottom: clamp(35px, 5vw, 60px); background-color: rgba(0, 0, 0, .97); }
+.experience-layout { display: grid; grid-template-columns: 1fr; gap: 0; align-items: start; }
+.timeline { margin-top: 20px; border-top: 1px solid var(--rust); }
+.experience-gallery { width: min(92%, 960px); margin: 60px auto 0; min-width: 0; }
+.experience-slides { position: relative; z-index: 1; width: 100%; aspect-ratio: 16 / 9; min-height: 0; margin: 0 0 18px; overflow: hidden; background: #080808; border: 0; box-shadow: none; }
+.experience-slides::before,
+.experience-slides::after { content: none; }
+.experience-track { width: 100%; height: 100%; display: flex; transform: translateX(0); transition: transform .48s cubic-bezier(.22,.75,.2,1); will-change: transform; }
+.experience-slide { position: relative; inset: auto; z-index: 1; width: 100%; height: 100%; min-width: 100%; min-height: 0; flex: 0 0 100%; opacity: 1; visibility: visible; transform: none; }
+.experience-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.experience-slide figcaption { transform: translateY(0); }
+.experience-slide:first-child figcaption { inset: 0 0 auto; }
+.slideshow-controls { display: grid; grid-template-columns: 46px 1fr 46px; align-items: center; margin-top: 14px; color: var(--ink); }
+.slideshow-controls button { width: 42px; height: 42px; padding: 0; color: var(--ink); background: transparent; border: 1px solid currentColor; box-shadow: none; font-size: 18px; line-height: 1; cursor: pointer; transition: color .15s, background .08s, border-color .15s; }
+.slideshow-controls button:hover,
+.slideshow-controls button:focus-visible { color: var(--rust); border-color: var(--rust); box-shadow: none; transform: none; outline: none; }
+.slideshow-controls button:active { color: var(--paper-ink); background: var(--rust); border-color: var(--rust); }
+.slide-counter { font: 10px "DM Mono"; text-align: center; }
+.slide-next { justify-self: end; }
 .timeline article { display: grid; grid-template-columns: 210px 1fr; gap: 45px; padding: 32px 0; border-bottom: 1px solid var(--line); }
-.timeline h3 { margin: 0; font-family: "Instrument Serif", serif; font-size: 33px; font-weight: 400; }
+.timeline h3 { margin: 0; font-family: "Instrument Serif", serif; font-size: 23px; font-weight: 400; }
 .timeline p { margin: 4px 0; font-size: 13px; font-weight: 600; }
 .timeline small { color: #bdb3a5; }
 
-/* ================================================================
-   PROJECT ARCHIVE
-   Each card is a button that opens its corresponding dialog.
-   ================================================================ */
-.projects { padding-right: clamp(35px, 6vw, 80px); padding-left: clamp(35px, 6vw, 80px); background-color: rgba(0, 0, 0, .97); }
+.projects { padding-right: clamp(22px, 4vw, 52px); padding-left: clamp(22px, 4vw, 52px); background-color: rgba(0, 0, 0, .97); }
 .projects-heading { display: flex; align-items: flex-end; justify-content: space-between; padding: 0 clamp(20px, 4vw, 50px); }
-.project-grid { display: grid; grid-template-columns: 1fr; gap: 110px; margin-top: 80px; }
-.project-card { position: relative; min-height: 680px; padding: 60px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(250px, .7fr); grid-template-rows: auto auto 1fr auto; column-gap: 65px; color: var(--paper-ink); background-color: var(--paper-light); background-image: linear-gradient(rgba(33, 28, 29, .11) 1px, transparent 1px), linear-gradient(90deg, rgba(33, 28, 29, .11) 1px, transparent 1px); background-size: 28px 28px; border: 0; box-shadow: 5px 9px 0 rgba(255, 164, 249, .32); font: inherit; text-align: left; transform: rotate(-.5deg); cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
+.project-grid { display: grid; grid-template-columns: 1fr; gap: 110px; margin-top: 20px; }
+.project-card { position: relative; min-height: 680px; padding: 60px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(250px, .7fr); grid-template-rows: auto auto 1fr auto; column-gap: 65px; color: var(--paper-ink); background-color: var(--paper-light); background-image: linear-gradient(rgba(33, 28, 29, .11) 1px, transparent 1px), linear-gradient(90deg, rgba(33, 28, 29, .11) 1px, transparent 1px); background-size: 28px 28px; border: 0; box-shadow: 5px 9px 0 rgba(255, 198, 202, .32); font: inherit; text-align: left; transform: rotate(-.5deg); cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
 .project-card:nth-child(2) { transform: rotate(.7deg); }
 .project-card:nth-child(3) { transform: rotate(-.3deg); }
-.project-card:hover { z-index: 2; transform: rotate(0) translateY(-7px); box-shadow: 9px 15px 0 rgba(255, 164, 249, .52); }
+.project-card:hover { z-index: 2; transform: rotate(0) translateY(-7px); box-shadow: 9px 15px 0 rgba(255, 198, 202, .52); }
 .project-card.pink, .project-card.blue { background-color: var(--paper-light); }
 .project-index { position: absolute; top: 26px; right: 28px; font: 10px "DM Mono"; }
 .binder-clip { position: absolute; top: -16px; left: 60px; width: 50px; height: 34px; border: 4px solid var(--rust); border-bottom: 0; border-radius: 10px 10px 0 0; }
 .mini-tape { top: -15px; left: 22%; }
-.project-graphic { grid-row: 1 / 5; width: 100%; min-height: 540px; display: flex; align-items: center; justify-content: center; color: var(--paper-light); background-color: #090909; background-image: linear-gradient(rgba(255,164,249,.12) 1px, transparent 1px), linear-gradient(90deg,rgba(255,164,249,.12) 1px,transparent 1px); background-size: 24px 24px; }
+.project-graphic { grid-row: 1 / 5; width: 100%; min-height: 540px; display: flex; align-items: center; justify-content: center; color: var(--paper-light); background-color: #090909; background-image: linear-gradient(rgba(255,198,202,.12) 1px, transparent 1px), linear-gradient(90deg,rgba(255,198,202,.12) 1px,transparent 1px); background-size: 24px 24px; }
 .circuit-board { position: relative; }
 .circuit-board b { padding: 36px; border: 1px solid; font: 14px "DM Mono"; }
 .circuit-board i { position: absolute; width: 28%; height: 1px; background: currentColor; }
@@ -260,15 +252,12 @@ img.png-placeholder { width: 100%; height: auto; display: block; border: 0; obje
 .test-meter b { display: grid; width: 160px; height: 160px; place-items: center; border: 8px solid var(--paper-dark); border-top-color: var(--rust); border-radius: 50%; font: 25px "DM Mono"; }
 .harness { gap: 25px; }.harness b { padding: 14px; border: 1px solid; font: 12px "DM Mono"; }.harness i { width: 65px; border-top: 1px solid; }
 .project-meta { align-self: end; margin-bottom: 18px; color: #675a5d; }
-.project-card > strong { font-family: "Instrument Serif", serif; font-size: clamp(34px, 3.8vw, 54px); font-weight: 400; line-height: .95; }
+.project-card > strong { font-family: "Instrument Serif", serif; font-size: clamp(24px, 2.7vw, 38px); font-weight: 400; line-height: .98; }
 .project-card > span:not(.project-graphic, .project-index, .project-meta, .binder-clip, .tape) { margin-top: 25px; font-size: 15px; }
-.project-card em { align-self: end; padding-top: 30px; font: 17px "Caveat"; }
+.project-card em { align-self: end; padding-top: 30px; font: 17px "DM Mono", monospace; }
 .import-note { max-width: 610px; margin: 100px auto 0; padding: 30px; border-top: 1px solid; border-bottom: 1px solid; font-size: 13px; text-align: center; }
 .import-note strong { font: 10px "DM Mono"; letter-spacing: .1em; }.import-note p { margin: 12px 0 0; }.import-note code { padding: 2px 5px; background: rgba(255,255,255,.5); }
 
-/* ================================================================
-   CONTACT PAGE AND FOOTER
-   ================================================================ */
 .contact { min-height: 650px; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: #000000; text-align: center; }
 .contact h2 span { color: #f4ecdc; font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
 .contact-links { display: flex; gap: 28px; margin-top: 30px; }
@@ -276,23 +265,21 @@ img.png-placeholder { width: 100%; height: auto; display: block; border: 0; obje
 
 footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px; display: flex; justify-content: space-between; background: #050505; border-right: 1px solid var(--line); border-left: 1px solid var(--line); font: 9px "DM Mono"; letter-spacing: .08em; text-transform: uppercase; }
 
-/* ================================================================
-   PROJECT POPUP WINDOWS
-   ::backdrop styles the dimmed page behind an open dialog.
-   ================================================================ */
-.project-dialog { width: min(800px, calc(100% - 32px)); padding: clamp(40px, 7vw, 80px); color: var(--paper-ink); background-color: var(--paper-light); background-image: linear-gradient(rgba(33, 28, 29, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(33, 28, 29, .1) 1px, transparent 1px); background-size: 28px 28px; border: 1px solid var(--rust); box-shadow: 10px 15px 0 rgba(255, 164, 249, .35); }
+.project-dialog { width: min(800px, calc(100% - 32px)); padding: clamp(40px, 7vw, 80px); color: var(--paper-ink); background-color: var(--paper-light); background-image: linear-gradient(rgba(33, 28, 29, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(33, 28, 29, .1) 1px, transparent 1px); background-size: 28px 28px; border: 1px solid var(--rust); box-shadow: 10px 15px 0 rgba(255, 198, 202, .35); }
 .project-dialog::backdrop { background: rgba(38, 34, 29, .7); backdrop-filter: blur(3px); }
-.project-dialog h2 { margin-top: 25px; }.dialog-close { position: absolute; top: 15px; right: 22px; border: 0; background: transparent; font: 38px "Caveat"; cursor: pointer; }
+.project-dialog h2 { margin-top: 25px; font-size: clamp(30px, 4vw, 52px); }.dialog-close { position: absolute; top: 15px; right: 22px; border: 0; background: transparent; font: 38px "DM Mono", monospace; cursor: pointer; }
+.project-details { margin: 16px 0 34px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.project-details time { padding-top: 6px; color: #756a65; font: 700 11px "DM Mono", monospace; letter-spacing: .06em; text-transform: uppercase; }
+.project-skills { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+.project-skills span { padding: 6px 9px; color: var(--paper-ink); background: rgba(255, 198, 202, .5); border: 1px solid rgba(33, 28, 29, .3); font: 700 9px "DM Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
 .dialog-tags { display: flex; gap: 18px; flex-wrap: wrap; margin: 35px 0; }.dialog-tags span { font: 10px "DM Mono"; border-bottom: 1px solid; }
 .graphic-dropzone { min-height: 200px; padding: 35px; display: grid; place-items: center; color: #6d695f; border: 1px dashed var(--line); background: rgba(255,255,255,.35); font: 11px "DM Mono"; text-align: center; text-transform: uppercase; }
-.draggable.is-dragging { cursor: grabbing; filter: drop-shadow(10px 14px 8px rgba(0,0,0,.18)); }
 
-/* Tablet layout: stack columns and expand project cards vertically. */
 @media (max-width: 850px) {
   .site-header { position: relative; align-items: flex-start; flex-direction: column; gap: 15px; }
   nav { width: 100%; gap: 12px; justify-content: space-between; }
-  .scrapbook-page { min-height: auto; padding: 70px 28px; }
-  .hero { grid-template-columns: 1fr; min-height: 1200px; }
+  .scrapbook-page { min-height: auto; padding: 65px 22px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-collage { min-height: 600px; }
   .about-layout { grid-template-columns: 1fr; gap: 45px; }
   .about-intro { position: static; }
@@ -303,14 +290,16 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
   footer { flex-direction: column; }
 }
 
-/* Phone layout: reduce sizes further and hide nonessential drag instructions. */
 @media (max-width: 500px) {
+  .site-header { padding-right: 16px; padding-left: 16px; }
+  .scrapbook-page,
+  .projects { padding-right: 16px; padding-left: 16px; }
   nav a { font-size: 8px; }
   h1 { font-size: 64px; }
-  .hero { min-height: 1050px; }
+  .hero { min-height: auto; }
   .hero-collage { min-height: 470px; }
   .polaroid { left: 0; width: 92%; }
-  .photo-placeholder { height: 300px; }
+  .photo-placeholder { height: 380px; }
   .sticky-note { width: 155px; }
   .project-card { min-height: 760px; grid-template-rows: 360px auto auto auto auto; }
   .project-graphic { min-height: 330px; }
@@ -318,30 +307,24 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
   .drag-hint { display: none; }
 }
 
-/* Respect visitors who disable motion in their operating system. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .project-card { transition: none; }
   .about-actions .paper-button { animation: none; transition: none; }
-  .hero-name { max-width: none; border-right: 0; animation: none; }
 }
 
-/* ================================================================
-   CLICKABLE TIMELINE ENTRIES
-   These overrides turn each experience row into a full-width button.
-   ================================================================ */
 .timeline-entry {
   position: relative;
   width: 100%;
   padding: 30px 12px;
   display: grid;
-  grid-template-columns: 190px 1fr auto;
+  grid-template-columns: 145px 1fr auto;
   align-items: center;
-  gap: 35px;
+  gap: 22px;
   color: var(--ink);
   background: transparent;
   border: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--rust);
   font: inherit;
   text-align: left;
   cursor: pointer;
@@ -358,17 +341,14 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
 }
 
 .timeline-entry span { display: flex; flex-direction: column; }
-.timeline-entry strong { font: 400 34px/1 "Instrument Serif", serif; }
-.timeline-entry b { margin-top: 7px; font-size: 13px; }
-.timeline-entry small { margin-top: 5px; color: #bdb3a5; }
+.timeline-entry time { font-size: 9px; line-height: 1.45; }
+.timeline-entry strong { font: 400 19px/1 "Instrument Serif", serif; }
+.timeline-entry b { margin-top: 6px; font-size: 11px; line-height: 1.35; }
+.timeline-entry small { margin-top: 5px; color: #bdb3a5; font-size: 11px; line-height: 1.45; }
 .timeline-entry:hover small,
 .timeline-entry:focus-visible small { color: #665b55; }
-.timeline-entry em { font: 15px "Caveat"; white-space: nowrap; }
+.timeline-entry em { font: 15px "DM Mono", monospace; white-space: nowrap; }
 
-/* ================================================================
-   SIX-PROJECT STICKY-NOTE GRID
-   Two columns by three rows on desktop; one column on small screens.
-   ================================================================ */
 .project-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 55px 45px;
@@ -407,10 +387,11 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
 
 .project-image-placeholder small { max-width: 240px; color: #b8aeb0; font-size: 9px; overflow-wrap: anywhere; }
 .project-card .project-meta { margin: 0 0 10px; }
-.project-card > strong { font-size: clamp(30px, 3.4vw, 47px); }
+.project-date { margin-bottom: 8px; color: #756a65; font-size: 9px; }
+.project-summary { margin-top: 16px; color: #665b55; font-size: 13px; line-height: 1.55; }
+.project-card > strong { font-size: clamp(21px, 2.4vw, 33px); }
 .project-card em { margin-top: auto; }
 
-/* Use this class when replacing a placeholder with a real project image. */
 .project-card-image {
   width: 100%;
   height: 285px;
@@ -419,9 +400,6 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
   object-fit: cover;
 }
 
-/* ================================================================
-   SCROLLABLE CASE-STUDY AND EXPERIENCE POPUPS
-   ================================================================ */
 .project-dialog {
   width: min(900px, calc(100% - 32px));
   max-height: 90vh;
@@ -440,21 +418,66 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
 .graphic-dropzone.large { min-height: 360px; margin: 35px 0 55px; }
 .case-section { padding: 35px 0; border-top: 1px solid rgba(33, 28, 29, .35); }
 .case-section > b,
-.timeline-detail section > b { font: 10px "DM Mono"; letter-spacing: .1em; }
+.timeline-detail section > b { font: 700 12px/1.4 "DM Mono"; letter-spacing: .1em; }
 .case-section p { max-width: 680px; margin-top: 15px; font-size: 17px; }
 .timeline-detail { margin: 50px 0; border-top: 1px solid rgba(33, 28, 29, .35); }
 .timeline-detail section { display: grid; grid-template-columns: 170px 1fr; gap: 35px; padding: 28px 0; border-bottom: 1px solid rgba(33, 28, 29, .35); }
 .timeline-detail p { margin: 0; }
-.role-dialog h3 { margin-top: -20px; font: 400 30px "Instrument Serif", serif; }
+.role-dialog h3 { margin-top: -12px; font: 400 21px "Instrument Serif", serif; }
+.company-link { margin: 10px 0 32px; padding: 10px 14px; display: inline-flex; align-items: center; gap: 9px; color: var(--paper-light); background: var(--paper-ink); border: 2px solid var(--paper-ink); box-shadow: 4px 4px 0 var(--rust); font: 700 11px "DM Mono", monospace; letter-spacing: .04em; text-decoration: none; transition: transform .16s ease, box-shadow .16s ease, color .16s ease, background .16s ease; }
+.company-link:hover,
+.company-link:focus-visible { color: var(--paper-ink); background: var(--rust); outline: none; transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--paper-ink); }
+.company-link:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--paper-ink); }
+.role-dialog .case-section ul { margin: 18px 0 0; padding-left: 24px; }
+.role-dialog .case-section li { margin-bottom: 13px; line-height: 1.65; }
+.debug-project { width: min(1440px, calc(100% - 24px)); }
+.debug-project .dialog-scroll { padding: clamp(42px, 5vw, 68px); }
+.debug-project h2 { margin-bottom: 28px; }
+.step-viewer { position: relative; width: 100%; aspect-ratio: 2.25 / 1; min-height: 440px; margin-bottom: 28px; overflow: hidden; color: var(--paper-light); background: #080808; border: 1px solid rgba(33, 28, 29, .45); cursor: grab; touch-action: none; }
+.step-viewer:active { cursor: grabbing; }
+.step-canvas, .step-canvas canvas { width: 100%; height: 100%; display: block; }
+.step-status { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; padding: 30px; font: 11px "DM Mono"; text-align: center; }
+.step-status.is-hidden { display: none; }
+.step-help { position: absolute; right: 14px; bottom: 12px; z-index: 3; padding: 7px 9px; color: var(--paper-light); background: rgba(5, 5, 5, .72); font: 9px "DM Mono"; pointer-events: none; }
+.debug-project .case-section > h3 { margin: 30px 0 14px; font: 600 17px/1.4 "Inter", sans-serif; }
+.debug-project .case-section > ul,
+.debug-project .case-section > ol { margin: 18px 0 0; padding-left: 24px; }
+.debug-project .case-section li { margin-bottom: 12px; line-height: 1.65; }
+.debug-project .case-section { padding: 24px 0; }
+.debug-project .case-section + .case-section { padding-top: 18px; }
+.case-image { width: 100%; height: auto; display: block; background: #fff; border: 1px solid rgba(33, 28, 29, .28); }
+.psm-layout-image { margin-top: 24px; }
+.project-hero-image { margin: 6px 0 28px; }
+.bottom-step-viewer { margin: 28px 0 0; }
+.project-description-image { margin-top: 26px; }
+.schematic-viewer { width: 100%; height: min(72vh, 760px); min-height: 480px; margin-top: 24px; display: block; background: #fff; border: 1px solid rgba(33, 28, 29, .28); }
+.schematic-link { display: inline-block; margin-top: 14px; padding-bottom: 3px; color: var(--paper-ink); border-bottom: 1px solid currentColor; font: 11px "DM Mono", monospace; text-decoration: none; }
+.schematic-link:hover,
+.schematic-link:focus-visible { color: var(--rust); }
+.source-code-button { margin-top: 22px; padding: 14px 18px; display: inline-flex; align-items: center; gap: 12px; color: var(--paper-light); background: var(--paper-ink); border: 2px solid var(--paper-ink); box-shadow: 5px 5px 0 var(--rust); font: 600 12px "DM Mono", monospace; letter-spacing: .04em; text-decoration: none; transition: transform .16s ease, box-shadow .16s ease, color .16s ease, background .16s ease; }
+.source-code-button:hover,
+.source-code-button:focus-visible { color: var(--paper-ink); background: var(--rust); outline: none; transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--paper-ink); }
+.source-code-button:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--paper-ink); }
+.layout-views { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.layout-views figure { margin: 0; }
+.layout-views figcaption { padding-top: 9px; font: 10px "DM Mono"; }
+.risk-list > li { margin-bottom: 34px; padding-left: 8px; }
+.risk-list h3 { margin: 0 0 10px; font: 600 17px/1.4 "Inter", sans-serif; }
+.risk-list p { margin: 8px 0; }
 
 @media (max-width: 850px) {
   .project-grid { grid-template-columns: 1fr; }
+  .skills-section .skill-list { grid-template-columns: 1fr; }
+  .experience-layout { grid-template-columns: 1fr; gap: 0; }
+  .experience-gallery { width: 100%; margin-top: 50px; }
   .project-card,
   .project-card.pink,
   .project-card.blue { min-height: 500px; padding: 24px; display: flex; }
   .timeline-entry { grid-template-columns: 1fr auto; gap: 10px 20px; }
   .timeline-entry time { grid-column: 1 / -1; }
   .timeline-detail section { grid-template-columns: 1fr; gap: 12px; }
+  .schematic-viewer { height: 65vh; min-height: 380px; }
+  .layout-views { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 500px) {
@@ -467,4 +490,10 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
   .timeline-entry em { margin-top: 8px; }
   .dialog-scroll { padding: 55px 24px; }
   .graphic-dropzone.large { min-height: 240px; }
+  .step-viewer { min-height: 260px; aspect-ratio: 16 / 9; }
+  .experience-slides { width: 100%; margin-right: 0; }
+  .about-gallery,
+  .experience-gallery { grid-template-columns: 1fr; }
+  .about-gallery figure:first-child,
+  .experience-gallery figure:first-child { grid-column: auto; }
 }
