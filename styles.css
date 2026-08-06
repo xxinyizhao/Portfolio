@@ -450,10 +450,10 @@ footer { width: min(100%, var(--page)); margin: 0 auto; padding: 26px 32px 40px;
 .schematic-link { display: inline-block; margin-top: 14px; padding-bottom: 3px; color: var(--paper-ink); border-bottom: 1px solid currentColor; font: 11px "DM Mono", monospace; text-decoration: none; }
 .schematic-link:hover,
 .schematic-link:focus-visible { color: var(--rust); }
-.source-code-button { margin-top: 22px; padding: 14px 18px; display: inline-flex; align-items: center; gap: 12px; color: var(--paper-light); background: var(--paper-ink); border: 2px solid var(--paper-ink); box-shadow: 5px 5px 0 var(--rust); font: 600 12px "DM Mono", monospace; letter-spacing: .04em; text-decoration: none; transition: transform .16s ease, box-shadow .16s ease, color .16s ease, background .16s ease; }
+.source-code-button { margin-top: 22px; padding: 10px 14px; display: inline-flex; align-items: center; gap: 9px; color: var(--paper-light); background: var(--paper-ink); border: 1px solid var(--paper-ink); box-shadow: none; font: 700 11px "DM Mono", monospace; letter-spacing: .04em; text-decoration: none; transition: color .16s ease, background .16s ease; }
 .source-code-button:hover,
-.source-code-button:focus-visible { color: var(--paper-ink); background: var(--rust); outline: none; transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--paper-ink); }
-.source-code-button:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--paper-ink); }
+.source-code-button:focus-visible { color: var(--paper-ink); background: var(--rust); outline: 2px solid var(--paper-ink); outline-offset: 2px; }
+.source-code-button:active { color: var(--paper-light); background: var(--paper-ink); }
 .layout-views { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .layout-views figure { margin: 0; }
 .layout-views figcaption { padding-top: 9px; font: 10px "DM Mono"; }
