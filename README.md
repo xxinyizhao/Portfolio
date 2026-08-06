@@ -1,24 +1,3 @@
-# Xinyi Zhao — Engineering Portfolio
+# Project portfolio
 
-A responsive, accessible portfolio showcasing my electrical engineering work,
-experience, and technical skills.
-
-**Live site:** [xxinyizhao.github.io/Portfolio](https://xxinyizhao.github.io/Portfolio/)
-
-## Run locally
-
-No build step is required. Open `index.html` in a browser, or serve the folder
-with any static file server.
-
-```bash
-python -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
-
-## Structure
-
-- `index.html` — semantic page content
-- `styles.css` — responsive layout and visual system
-- `script.js` — mobile navigation and scroll reveals
-- `assets/` — résumé and other downloadable files
+Website: [xxinyizhao.github.io/Portfolio](https://xxinyizhao.github.io/Portfolio/)
